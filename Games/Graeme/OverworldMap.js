@@ -22,13 +22,14 @@ window.OverworldMaps = {
     Demo: {
         lowerSrc: "/images/maptileset/samplemap/samplemap2.png",
         gameObjects: {
-            hero: new GameObject({
-                x: 2,
-                y: 3,
+            hero: new Person({
+                isPlayerControlled: true,
+                x: utils.withGrid(2),
+                y: utils.withGrid(3),
             }),
             doggo: new GameObject({
-                x: 6,
-                y: 1,
+                x: utils.withGrid(6),
+                y: utils.withGrid(1),
                 src: "/images/characters/animal/doggo.png"
             })
         }

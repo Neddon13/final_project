@@ -33,16 +33,16 @@ class Sprite {
         const y = this.gameObject.y ;
 
         this.isShadowLoaded && ctx.drawImage(this.shadow,
-            x * 32,
-            y * 32 + 3
+            x,
+            y + 3
         )
 
         this.isLoaded && ctx.drawImage(this.image,
-            0, 0,           // x and y co-ord of start of image on spritesheet
-            32, 32,         // width and height of image to cut
-            x * 32 - 1,     // x co-ord of top left of where sprite should be drawn
-            y * 32 - 10,    // y co-ord of top left of where sprite should be drawn
-            32, 32          // width and height of the image being shown
+            0, 0,                                       // x and y co-ord of start of image on spritesheet
+            utils.withGrid(1), utils.withGrid(1),       // width and height of image to cut
+            x - 1,                                      // x co-ord of top left of where sprite should be drawn
+            y - 10,                                     // y co-ord of top left of where sprite should be drawn
+            utils.withGrid(1), utils.withGrid(1)        // width and height of the image being shown
         )
     }
 }
