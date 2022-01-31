@@ -27,11 +27,11 @@ window.OverworldMaps = {
                 x: utils.withGrid(2),
                 y: utils.withGrid(3),
             }),
-            doggo: new GameObject({
-                x: utils.withGrid(6),
-                y: utils.withGrid(1),
-                src: "/images/characters/animal/doggo.png"
-            })
+            // doggo: new GameObject({
+            //     x: utils.withGrid(6),
+            //     y: utils.withGrid(1),
+            //     src: "/images/characters/animal/doggo.png"
+            // })
         }
     },
     Test: {
