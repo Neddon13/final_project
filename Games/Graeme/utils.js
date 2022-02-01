@@ -21,5 +21,11 @@ const utils = {
             y += size;
         }
         return {x,y};
+    },
+
+    emitEvent(name, detail) {
+        const event = new CustomEvent(name, detail);
+        document.dispatchEvent(event);
     }
+
 }
