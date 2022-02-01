@@ -1,0 +1,13 @@
+.gamegrid {
+    width: 875px;
+    height: 600px;
+    display: flex;
+    flex-wrap: wrap;
+    border-style: solid;
+
+}
+
+.gamegrid div {
+    width: 16px;
+    height: 16px;
+}
