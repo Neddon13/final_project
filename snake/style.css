@@ -8,6 +8,14 @@
 }
 
 .gamegrid div {
-    width: 16px;
-    height: 16px;
+    width: 24px;
+    height: 24px;
+}
+
+.snake {
+    background-color: aqua;
+}
+
+.food {
+    background-color: red;
 }
