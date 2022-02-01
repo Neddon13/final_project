@@ -28,6 +28,26 @@ class OverworldMap {
         const {x, y} = utils.nextPosition(currentX, currentY, direction);
         return this.walls[`${x},${y}`] || false;
     }
+
+    mountObjects() {
+        Object.values(this.gameObjects).forEach(object => {
+            object.mount(this)
+        })
+    }
+
+    addWall(x, y) {
+        this.walls[`${x},${y}`] = true;
+    }
+
+    removeWall(x, y) {
+        delete this.walls[`${x},${y}`];
+    }
+
+    moveWall(currentX, currentY, direction) {
+        this.removeWall(currentX, currentY);
+        const {x,y} = utils.nextPosition(currentX, currentY, direction);
+        this.addWall(x, y);
+    }
 }
 
 window.OverworldMaps = {
@@ -39,11 +59,11 @@ window.OverworldMaps = {
                 x: utils.withGrid(2),
                 y: utils.withGrid(2),
             }),
-            // doggo: new GameObject({
-            //     x: utils.withGrid(6),
-            //     y: utils.withGrid(1),
-            //     src: "/images/characters/animal/doggo.png"
-            // })
+            doggo: new GameObject({
+                x: utils.withGrid(6),
+                y: utils.withGrid(1),
+                src: "/images/characters/animal/doggo.png"
+            })
         },
         walls: {
             [utils.asGridCoord(1, 3)] : true,

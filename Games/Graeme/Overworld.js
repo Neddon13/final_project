@@ -37,6 +37,7 @@ class Overworld {
 
     init() {
         this.map = new OverworldMap(window.OverworldMaps.Demo);
+        this.map.mountObjects();
 
         this.directionInput = new DirectionInput();
         this.directionInput.init();
