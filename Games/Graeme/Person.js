@@ -7,6 +7,8 @@ class Person extends GameObject {
         // Number of pixels left in current movement - this should stop object from stopping between grid points
         this.movingProgressRemaining = 0;
 
+        this.isStanding = false;
+
         // Flag to determine whether keypresses should move them
         this.isPlayerControlled = config.isPlayerControlled || false;
 
@@ -23,7 +25,7 @@ class Person extends GameObject {
         if (this.movingProgressRemaining > 0) {
             this.updatePosition();
         } else {
-            if (this.isPlayerControlled && state.arrow) {
+            if (!state.map.isCutscenePlaying && this.isPlayerControlled && state.arrow) {
                 this.startBehaviour(state, {
                     type: "walk",
                     direction: state.arrow,
@@ -51,12 +53,14 @@ class Person extends GameObject {
         }
 
         if (behaviour.type === "stand") {
+            this.isStanding = true;
             setTimeout(() => {
                 utils.emitEvent("PersonStandingComplete", {
                     detail: {
                         whoId: this.id
                     }
                 })
+                this.isStanding = false;
             }, behaviour.time)
         }
     }
