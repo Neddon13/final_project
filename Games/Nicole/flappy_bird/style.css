@@ -4,16 +4,16 @@
 }
 
 #game{
-    width: 500px;
-    height: 700px;
+    width: 400px;
+    height: 500px;
     margin: auto;
-    /* border: solid 1px black; */
-    /* overflow: hidden; */
+    border: solid 1px black;
+    overflow: hidden;
 }
 
 #pipes{
     width: 50px;
-    height: 700px;
+    height: 500px;
     background-color: greenyellow;
     position: relative;
     left: 400px;
@@ -33,4 +33,12 @@
     top: -150px;
     left: 400px;
     animation: pipes 2s infinite linear;
+}
+
+#bird{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    background-color: orange;
+    top: 100px;
 }
