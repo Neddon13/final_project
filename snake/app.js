@@ -1,100 +1,95 @@
-document.addEventListener('DOMContentLoaded', () =>{
-    const sqaures = document.querySelectorAll('.grid div')
-    const score = document.querySelector('span')
-    const playbtn = document.querySelector('.play')
+document.addEventListener('DOMContentLoaded', () => {
+    const squares = document.querySelectorAll('.grid div')
+    const scoreDisplay = document.querySelector('span')
+    const playBtn = document.querySelector('.play') 
 
-    const width = 40 
-    let currentPosition = 3 //start point 
-    let foodPositon = 0 // apple position on gird
-    let snakePosition = [2, 1, 0] // head of snake = 2 and tail = 0 and 1 = body of snake 
-
-    let direction = 1 // snake can only move one position at a time 
+    //above assigning variables to the query selectors for the html file tags to be used for the game script 
+  
+    const width = 20 // width of grid in divs 
+    let currentIndex = 0 // first div in grid
+    let foodIndex = 0 //first div in grid
+    let currentSnake = [2,1,0] 
+    let direction = 1
     let score = 0 // start score
-    let speed = 0.75 // speed of snake 
-    let intervalTime = 0 
+    let speed = 0.95 // speed of movement
+    let intervalTime = 0
     let interval = 0
-
-    //to play game 
-    function playgame(){
-        snakePosition.forEach(index => sqaures[index].classList.remove('snake')) // reset
-        sqaures[foodPositon].classList.remove('food') // reset
-        clearInterval(interval) // reset 
-        score = 0 // start score
-        randomFood() // random food generated
-        direction = 1 // start position facing right
-        scoreDisplay.innerText = score // shows score 
-        intervalTime = 1000 
-        snakePosition = [2, 1, 0] // snake head body and tail in array
-        currentPosition = 0 // current position on grid
-        snakePosition.forEach(index => sqaures[index].classList.add('snake')) //
-        interval = setInterval(gameOutcomes, intervalTime) //
+  
+  
+    //to start, and restart the game
+    function startGame() {
+      currentSnake.forEach(index => squares[index].classList.remove('snake')) // resets game
+      squares[foodIndex].classList.remove('food') // resest game
+      clearInterval(interval) // resets game
+      score = 0 // start score
+      randomFood() // genertes food
+      direction = 1
+      scoreDisplay.innerText = score // display score
+      intervalTime = 175 // time between movements of snakes head, body and tail
+      currentSnake = [2,1,0] // array for snake , 2 = head , 1 = body and 0 = tail
+      currentIndex = 0
+      currentSnake.forEach(index => squares[index].classList.add('snake'))
+      interval = setInterval(gameOutcomes, intervalTime)
     }
-
-    //function to deal with all outcomes in game
-    function gameOutcomes(){
-    //handling snake hitting edges or itself
-    if(
-        (snakePosition[0] + width >= (width * width) && direction === width) // deals with snake hitting the bottom edge
-        || // or
-        (snakePosition[0] & width === width-1 && direction === 1) // deals with snake hitting right edge
-        || // or
-        (snakePosition[0] & width === 0 && direction === -1) // deals with snake hitting left edge
-        || // or 
-        (snakePosition[0] - width < 0 && direction === -width) // deals with snake hitting top edge
-        || // or
-        sqaures[snakePosition[0] + direction].classList.contains('snake') // deals with snake hitting into itself
-    ){
-
-        return clearInterval(interval) // this clears the interval if any of the above outcomes happen
-
+  
+  
+    //function that deals with the games outcomes
+    function gameOutcomes() {
+      //deals with snake hitting edges/walls or snake hitting itself
+      if (
+        (currentSnake[0] + width >= (width * width) && direction === width ) || //if snake hits bottom stop game
+        (currentSnake[0] % width === width -1 && direction === 1) || //if snake hits right wall stop game
+        (currentSnake[0] % width === 0 && direction === -1) || //if snake hits left wall stop game
+        (currentSnake[0] - width < 0 && direction === -width) ||  //if snake hits the top wall stop game
+        squares[currentSnake[0] + direction].classList.contains('snake') //if snake goes into itself stop game
+      ) {
+        return clearInterval(interval) // reset
+      }
+  
+      const tail = currentSnake.pop() //removes last value of the array and shows it
+      squares[tail].classList.remove('snake')  //removes class of snake from the TAIL
+      currentSnake.unshift(currentSnake[0] + direction) //gives direction to the head of the snake
+  
+      //deals with snake eating food
+      if(squares[currentSnake[0]].classList.contains('food')) {
+        squares[currentSnake[0]].classList.remove('food')
+        squares[tail].classList.add('snake')
+        currentSnake.push(tail)
+        randomFood() // generates food
+        score++ // adds 1 to score when consumed
+        scoreDisplay.textContent = score // display updated score
+        clearInterval(interval) // resets interval 
+        intervalTime = intervalTime * speed // speed multiplier when eating food added
+        interval = setInterval(gameOutcomes, intervalTime) // interval set 
+      }
+      squares[currentSnake[0]].classList.add('snake')
     }
-
-    const snakeTail = snakePosition.pop() // removes last value in array and shows 
-    sqaures[snakeTail].classList.remove('snake') // removes snake class from the tail
-    snakePosition.unshift(snakePosition[0] + direction) // this gives the direction to the head of the array aka snake 
-
-
-    // food adding then removing and genarating new food 
-    if(sqaures[snakePosition].classList.contains('food')){
-       sqaures[snakePosition[0]].classList.remove('food')
-       snakePosition.push(snakeTail)
-       randomFood()// calls function to genarate new food and makes sure it does not spawn inside the snake
-       score++ // adds 1 to score after eating food
-       scoreDisplay.textContent = score // display new score value
-       clearInterval(interval)
-       intervalTime = intervalTime * speed
-       interval = setInterval(gameOutcomes, intervalTime)
+  
+  
+    //generate new apple once apple is eaten
+    function randomFood() {
+      do{
+        foodIndex = Math.floor(Math.random() * squares.length) // this allows us to genarate random food using math.random to genarate a random number based on sqaure length, so the apple can show anywhere on the grid and math.floor to round down the integer to make sure the random sqaure is within the grid
+      } while(squares[foodIndex].classList.contains('snake')) //making sure food will not spawn inside the snake
+      squares[foodIndex].classList.add('food')
     }
-    sqaures[snakePosition[0].classList.add('snake')]
-}
-
-    //genrate new random food once previous food is written
-    function randomFood(){
-        do{
-            foodPositon = math.floor(math.random() * sqaures.length) // this allows us to genarate random food using math.random to genarate a random number based on sqaure length, so the apple can show anywhere on the grid and math.floor to round down the integer to make sure the random sqaure is within the grid
-        } while(sqaures[foodPositon].classList.contains('snake')) // makes sure food does not appear apple does not appear inside the snake 
-        sqaures[foodPositon].classList.add('food')
+  
+  
+    //assign functions to keycodes
+    function control(e) {
+      squares[currentIndex].classList.remove('snake')
+  
+      if(e.keyCode === 39) {
+        direction = 1 //if we press the right arrow on our keyboard, the snake will go right one
+      } else if (e.keyCode === 38) {
+        direction = -width // if we press the up arrow, the snake will go back ten divs, appearing to go up
+      } else if (e.keyCode === 37) {
+        direction = -1 // if we press left, the snake will go left one div
+      } else if (e.keyCode === 40) {
+        direction = +width //if we press down, the snake head will instantly appear in the div ten divs from where you are now
+      }
     }
-
-    //assigning keys on keyboard to work for the game using keycodes for mac
-
-    function control(key){
-        sqaures[currentPosition].classList.remove('snake')// removing all instances of the snake class from being able to be left behind in game 
-        
-        if(key.KeyCode === 124){
-            direction = 1 // right arrow moves you one place
-        } else if(key.KeyCode === 126){
-        direction = -width // up arrown moves you up by going backwards divs 
-        } else if (key.KeyCode === 123){
-        direction = -1 // moves one space left 
-        } else if (key.KeyCode === 125){
-        direction = +width // opposite of up this now moves you forward divs to get down one space
-    }
-}
-
-    document.addEventListener('keyup', control)
-    playbtn.addEventListener('click', playgame)
-
-
-
-})
+  
+    document.addEventListener('keyup', control) // when a key is pressed call control function to use the keys assigned to play the game
+    playBtn.addEventListener('click', startGame) // when play button is clicked start game
+  })

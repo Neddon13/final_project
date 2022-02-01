@@ -1,21 +1,21 @@
-.gamegrid {
-    width: 875px;
-    height: 600px;
+
+.grid {
+    width: 400px;
+    height: 400px;
     display: flex;
     flex-wrap: wrap;
     border-style: solid;
-
-}
-
-.gamegrid div {
-    width: 24px;
-    height: 24px;
-}
-
-.snake {
-    background-color: aqua;
-}
-
-.food {
-    background-color: red;
-}
+  }
+  
+  .grid div {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .snake {
+    background-color: blue;
+  }
+  
+  .food {
+    background-color: purple;
+  }
