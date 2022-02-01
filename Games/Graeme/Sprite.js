@@ -62,9 +62,9 @@ class Sprite {
         }
     }
 
-    draw(ctx) {
-        const x = this.gameObject.x ;
-        const y = this.gameObject.y ;
+    draw(ctx, cameraPerson) {
+        const x = this.gameObject.x + utils.withGrid(10.5) - cameraPerson.x ;
+        const y = this.gameObject.y + utils.withGrid(6) - cameraPerson.y ;
 
         this.isShadowLoaded && ctx.drawImage(this.shadow,
             x,
@@ -74,11 +74,11 @@ class Sprite {
         const [frameX, frameY] = this.frame;
 
         this.isLoaded && ctx.drawImage(this.image,
-            utils.withGrid(frameX), utils.withGrid(frameY),       // x and y co-ord of start of image on spritesheet
-            utils.withGrid(1), utils.withGrid(1),       // width and height of image to cut
-            x - 1,                                      // x co-ord of top left of where sprite should be drawn
-            y - 10,                                     // y co-ord of top left of where sprite should be drawn
-            utils.withGrid(1), utils.withGrid(1)        // width and height of the image being shown
+            utils.withGrid(frameX), utils.withGrid(frameY),     // x and y co-ord of start of image on spritesheet
+            utils.withGrid(1), utils.withGrid(1),               // width and height of image to cut
+            x - 1,                                              // x co-ord of top left of where sprite should be drawn
+            y - 10,                                             // y co-ord of top left of where sprite should be drawn
+            utils.withGrid(1), utils.withGrid(1)                // width and height of the image being shown
         )
 
         this.updateAnimationProgress();
