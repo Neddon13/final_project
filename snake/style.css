@@ -5,6 +5,13 @@
     display: flex;
     flex-wrap: wrap;
     border-style: solid;
+    border-color: rgb(red, green, blue);
+    background-color: black;
+  }
+  h1 {
+    text-align: center;
+    font-size: 50px;
+    color: black; 
   }
   
   .grid div {
@@ -13,9 +20,19 @@
   }
   
   .snake {
-    background-color: blue;
+    background-color: rgb(0, 255, 13);
   }
   
   .food {
-    background-color: purple;
+    background-color: rgb(255, 0, 0);
   }
+
+  .play {
+    height: 50px;
+    width: 100px;
+    margin: 50px;
+    align-self: flex-end;
+    justify-self: center;
+  }
+
+  

@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //generate new apple once apple is eaten
     function randomFood() {
       do{
-        foodIndex = Math.floor(Math.random() * squares.length) // this allows us to genarate random food using math.random to genarate a random number based on sqaure length, so the apple can show anywhere on the grid and math.floor to round down the integer to make sure the random sqaure is within the grid
+         foodIndex = Math.floor(Math.random() * squares.length) // this allows us to genarate random food using math.random to genarate a random number based on sqaure length, so the apple can show anywhere on the grid and math.floor to round down the integer to make sure the random sqaure is within the grid
       } while(squares[foodIndex].classList.contains('snake')) //making sure food will not spawn inside the snake
       squares[foodIndex].classList.add('food')
     }
