@@ -1,44 +1,27 @@
-*{
-    padding: 0%;
-    margin: 0%;
-}
-
-#game{
-    width: 400px;
-    height: 500px;
-    margin: auto;
-    border: solid 1px black;
-    overflow: hidden;
-}
-
-#pipes{
-    width: 50px;
-    height: 500px;
-    background-color: greenyellow;
-    position: relative;
-    left: 400px;
-    animation: pipes 2s infinite linear;
-} 
-
-@keyframes pipes{
-    0%{left: 400px;}
-    100%{left: -50px;}
-}
-
-#gap{
-    width: 50px;
-    height: 150px;
-    background-color: white;
-    position: relative;
-    top: -150px;
-    left: 400px;
-    animation: pipes 2s infinite linear;
-}
-
-#bird{
-    width: 20px;
-    height: 20px;
+.game{
+    width: 600px;
+    height: 730px;
     position: absolute;
-    background-color: orange;
-    top: 100px;
+}
+
+.sky{
+    background-image: url('images/Flappybird.png');
+    width: 600px;
+    height: 500px;
+    position: absolute;
+}
+
+.ground{
+    background-color: green;
+    width: 600px;
+    height: 150px;
+    position: absolute;
+    top: 500px;
+}
+
+.bird{
+    background-color: yellow;
+    position: absolute;
+    width: 40px;
+    height: 35px;
 }
