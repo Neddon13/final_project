@@ -26,6 +26,18 @@ const utils = {
     emitEvent(name, detail) {
         const event = new CustomEvent(name, detail);
         document.dispatchEvent(event);
+    },
+
+    oppositeDirection(direction) {
+        if (direction === "left") {
+            return "right"
+        } else if (direction === "right") {
+            return "left"
+        } else if (direction === "down") {
+            return "up"
+        } else {
+            return "down"
+        }
     }
 
 }

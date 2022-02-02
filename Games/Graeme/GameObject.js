@@ -13,6 +13,8 @@ class GameObject {
 
         this.behaviourLoop = config.behaviourLoop || [];
         this.behaviourLoopIndex = 0;
+
+        this.talking = config.talking || [];
     }
 
     mount(map) {

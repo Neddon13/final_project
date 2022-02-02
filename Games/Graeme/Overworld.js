@@ -37,16 +37,25 @@ class Overworld {
         step();
     }
 
+    bindActionInput() {
+        new KeyPressListener("Enter", () => {
+            // Is there an interactible object here?
+            this.map.checkForActionCutscene();
+        })
+    }
+
     init() {
         this.map = new OverworldMap(window.OverworldMaps.Demo);
         this.map.mountObjects();
+
+        this.bindActionInput();
 
         this.directionInput = new DirectionInput();
         this.directionInput.init();
         this.startGameLoop();
 
         this.map.startCutscene([
-            { type: "textMessage", text: "New game begun!" },
+            { type: "textMessage", text: "Welcome to CodeCland, feel free to explore and talk to people!" },
             { who: "hero", type: "stand", direction: "left", time: 100},
             { who: "hero", type: "stand", direction: "up", time: 100},
             { who: "hero", type: "stand", direction: "right", time: 100},
