@@ -1,22 +1,22 @@
-.game{
-    width: 600px;
+.game-container{
+    width: 500px;
     height: 730px;
     position: absolute;
 }
 
 .sky{
-    background-image: url('images/Flappybird.png');
-    width: 600px;
-    height: 500px;
+    background-color: blue;
+    width: 500px;
+    height: 580px;
     position: absolute;
 }
 
 .ground{
     background-color: green;
-    width: 600px;
+    width: 500px;
     height: 150px;
     position: absolute;
-    top: 500px;
+    top: 580px;
 }
 
 .bird{
@@ -27,8 +27,8 @@
 }
 
 .obstacle{
-    background-image: url(/images/flappybird-pipe.png);
+    background-color: green;
     width: 60px;
-    height: 220px;
+    height: 270px;
     position: absolute;
 }
