@@ -52,9 +52,14 @@ class Overworld {
         })
     }
 
-    init() {
-        this.map = new OverworldMap(window.OverworldMaps.Demo);
+    startMap(mapConfig) {
+        this.map = new OverworldMap(mapConfig);
+        this.map.overworld = this;
         this.map.mountObjects();
+    }
+
+    init() {
+        this.startMap(window.OverworldMaps.Demo);
 
         this.bindActionInput();
         this.bindHeroPosition();
@@ -64,11 +69,11 @@ class Overworld {
         this.startGameLoop();
 
         this.map.startCutscene([
-            { type: "textMessage", text: "Welcome to CodeCland, feel free to explore and talk to people!" },
-            { who: "hero", type: "stand", direction: "left", time: 100},
-            { who: "hero", type: "stand", direction: "up", time: 100},
-            { who: "hero", type: "stand", direction: "right", time: 100},
-            { who: "hero", type: "stand", direction: "down", time: 100},
+            { type: "textMessage", text: "Welcome to CodecLAND, feel free to explore and talk to people!" },
+            // { who: "hero", type: "stand", direction: "left", time: 100},
+            // { who: "hero", type: "stand", direction: "up", time: 100},
+            // { who: "hero", type: "stand", direction: "right", time: 100},
+            // { who: "hero", type: "stand", direction: "down", time: 100},
         ])
     }
 }

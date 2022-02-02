@@ -30,6 +30,7 @@ class Person extends GameObject {
                     type: "walk",
                     direction: state.arrow,
                 })
+                console.log(this.x / 32, this.y / 32)
             }
             this.updateSprite();
         } 
