@@ -101,7 +101,7 @@ window.OverworldMaps = {
             })
         },
         walls: {
-                // Row 0
+            // Row 0
             [utils.asGridCoord(19, 0)] : true,
             [utils.asGridCoord(26, 0)] : true,
             [utils.asGridCoord(29, 0)] : true,
@@ -112,7 +112,7 @@ window.OverworldMaps = {
             [utils.asGridCoord(53, 0)] : true,
             [utils.asGridCoord(56, 0)] : true,
 
-                // Row 1
+            // Row 1
             [utils.asGridCoord(20, 1)] : true,
             [utils.asGridCoord(21, 1)] : true,
             [utils.asGridCoord(26, 1)] : true,
@@ -127,7 +127,7 @@ window.OverworldMaps = {
             [utils.asGridCoord(58, 1)] : true,
             [utils.asGridCoord(59, 1)] : true,
 
-                // Row 2
+            // Row 2
             [utils.asGridCoord(22, 2)] : true,
             [utils.asGridCoord(26, 2)] : true,
             [utils.asGridCoord(28, 2)] : true,
@@ -144,7 +144,7 @@ window.OverworldMaps = {
             [utils.asGridCoord(56, 2)] : true,
             [utils.asGridCoord(58, 2)] : true,
 
-                // Row 3
+            // Row 3
             [utils.asGridCoord(15, 3)] : true,
             [utils.asGridCoord(16, 3)] : true,
             [utils.asGridCoord(17, 3)] : true,
@@ -168,11 +168,11 @@ window.OverworldMaps = {
             [utils.asGridCoord(58, 3)] : true,
             [utils.asGridCoord(59, 3)] : true,
 
-                // Row 4
+            // Row 4
             [utils.asGridCoord(14, 4)] : true,
             [utils.asGridCoord(18, 4)] : true,
             [utils.asGridCoord(19, 4)] : true,
-            [utils.asGridCoord(25, 4)] : true,
+            [utils.asGridCoord(24, 4)] : true,
             [utils.asGridCoord(28, 4)] : true,
             [utils.asGridCoord(33, 4)] : true,
             [utils.asGridCoord(35, 4)] : true,
@@ -184,7 +184,7 @@ window.OverworldMaps = {
             [utils.asGridCoord(51, 4)] : true,
             [utils.asGridCoord(53, 4)] : true,
 
-                // Row 5
+            // Row 5
             [utils.asGridCoord(14, 5)] : true,
             [utils.asGridCoord(25, 5)] : true,
             [utils.asGridCoord(28, 5)] : true,
@@ -201,7 +201,7 @@ window.OverworldMaps = {
             [utils.asGridCoord(55, 5)] : true,
             [utils.asGridCoord(56, 5)] : true,
 
-                // Row 6
+            // Row 6
             [utils.asGridCoord(7, 6)] : true,
             [utils.asGridCoord(15, 6)] : true,
             [utils.asGridCoord(16, 6)] : true,
@@ -221,20 +221,88 @@ window.OverworldMaps = {
             [utils.asGridCoord(56, 6)] : true,
             [utils.asGridCoord(57, 6)] : true,
 
-                // Row 7
-            [utils.asGridCoord(1, 7)] : true,
-            [utils.asGridCoord(1, 7)] : true,
-            [utils.asGridCoord(1, 7)] : true,
-            [utils.asGridCoord(1, 7)] : true,
-            [utils.asGridCoord(1, 7)] : true,
-            [utils.asGridCoord(1, 7)] : true,
-            [utils.asGridCoord(1, 7)] : true,
-            [utils.asGridCoord(1, 7)] : true,
-            [utils.asGridCoord(1, 7)] : true,
-            [utils.asGridCoord(1, 7)] : true,
-            [utils.asGridCoord(1, 7)] : true,
-            [utils.asGridCoord(1, 7)] : true,
-            [utils.asGridCoord(1, 7)] : true,
+            // Row 7
+            [utils.asGridCoord(6, 7)] : true,
+            [utils.asGridCoord(8, 7)] : true,
+            [utils.asGridCoord(16, 7)] : true,
+            [utils.asGridCoord(21, 7)] : true,
+            [utils.asGridCoord(22, 7)] : true,
+            [utils.asGridCoord(24, 7)] : true,
+            [utils.asGridCoord(27, 7)] : true,
+            [utils.asGridCoord(36, 7)] : true,
+            [utils.asGridCoord(37, 7)] : true,
+            [utils.asGridCoord(43, 7)] : true,
+            [utils.asGridCoord(49, 7)] : true,
+            [utils.asGridCoord(53, 7)] : true,
+            [utils.asGridCoord(55, 7)] : true,
+
+            // Row 8
+            [utils.asGridCoord(6, 8)] : true,
+            [utils.asGridCoord(8, 8)] : true,
+            [utils.asGridCoord(15, 8)] : true,
+            [utils.asGridCoord(20, 8)] : true,
+            [utils.asGridCoord(21, 8)] : true,
+            [utils.asGridCoord(24, 8)] : true,
+            [utils.asGridCoord(26, 8)] : true,
+            [utils.asGridCoord(34, 8)] : true,
+            [utils.asGridCoord(36, 8)] : true,
+            [utils.asGridCoord(38, 8)] : true,
+            [utils.asGridCoord(42, 8)] : true,
+            [utils.asGridCoord(43, 8)] : true,
+            [utils.asGridCoord(48, 8)] : true,
+            [utils.asGridCoord(53, 8)] : true,
+            [utils.asGridCoord(56, 8)] : true,
+
+            // Row 9
+            [utils.asGridCoord(1, 9)] : true,
+            [utils.asGridCoord(4, 9)] : true,
+            [utils.asGridCoord(5, 9)] : true,
+            [utils.asGridCoord(6, 9)] : true,
+            [utils.asGridCoord(8, 9)] : true,
+            [utils.asGridCoord(10, 9)] : true,
+            [utils.asGridCoord(11, 9)] : true,
+            [utils.asGridCoord(12, 9)] : true,
+            [utils.asGridCoord(13, 9)] : true,
+            [utils.asGridCoord(14, 9)] : true,
+            [utils.asGridCoord(15, 9)] : true,
+            [utils.asGridCoord(16, 9)] : true,
+            [utils.asGridCoord(20, 9)] : true,
+            [utils.asGridCoord(21, 9)] : true,
+            [utils.asGridCoord(23, 9)] : true,
+            [utils.asGridCoord(26, 9)] : true,
+            [utils.asGridCoord(30, 9)] : true,
+            [utils.asGridCoord(36, 9)] : true,
+            [utils.asGridCoord(39, 9)] : true,
+            [utils.asGridCoord(40, 9)] : true,
+            [utils.asGridCoord(43, 9)] : true,
+            [utils.asGridCoord(49, 9)] : true,
+            [utils.asGridCoord(52, 9)] : true,
+            [utils.asGridCoord(53, 9)] : true,
+            [utils.asGridCoord(57, 9)] : true,
+            [utils.asGridCoord(59, 9)] : true,
+
+            // Row 10
+            [utils.asGridCoord(0, 10)] : true,
+            [utils.asGridCoord(2, 10)] : true,
+            [utils.asGridCoord(3, 10)] : true,
+            [utils.asGridCoord(8, 10)] : true,
+            [utils.asGridCoord(9, 10)] : true,
+            [utils.asGridCoord(23, 10)] : true,
+            [utils.asGridCoord(26, 10)] : true,
+            [utils.asGridCoord(36, 10)] : true,
+            [utils.asGridCoord(40, 10)] : true,
+            [utils.asGridCoord(43, 10)] : true,
+            [utils.asGridCoord(45, 10)] : true,
+            [utils.asGridCoord(46, 10)] : true,
+            [utils.asGridCoord(47, 10)] : true,
+            [utils.asGridCoord(48, 10)] : true,
+            [utils.asGridCoord(53, 10)] : true,
+            [utils.asGridCoord(54, 10)] : true,
+            [utils.asGridCoord(55, 10)] : true,
+            [utils.asGridCoord(57, 10)] : true,
+            [utils.asGridCoord(59, 10)] : true,
+
+            // Row 11
         }
     }
 }

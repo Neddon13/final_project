@@ -46,11 +46,11 @@ class Overworld {
         this.startGameLoop();
 
         this.map.startCutscene([
-            { type: "textMessage", text: "New game begun!" }
-            // { who: "hero", type: "stand", direction: "left", time: 100},
-            // { who: "hero", type: "stand", direction: "up", time: 100},
-            // { who: "hero", type: "stand", direction: "right", time: 100},
-            // { who: "hero", type: "stand", direction: "down", time: 100},
+            { type: "textMessage", text: "New game begun!" },
+            { who: "hero", type: "stand", direction: "left", time: 100},
+            { who: "hero", type: "stand", direction: "up", time: 100},
+            { who: "hero", type: "stand", direction: "right", time: 100},
+            { who: "hero", type: "stand", direction: "down", time: 100},
         ])
     }
 }
