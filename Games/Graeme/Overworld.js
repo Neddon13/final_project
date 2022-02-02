@@ -44,11 +44,20 @@ class Overworld {
         })
     }
 
+    bindHeroPosition() {
+        document.addEventListener("PersonWalkingComplete", e => {
+            if (e.detail.whoId === "hero") {
+                this.map.checkForPositionalCutscene();
+            }
+        })
+    }
+
     init() {
         this.map = new OverworldMap(window.OverworldMaps.Demo);
         this.map.mountObjects();
 
         this.bindActionInput();
+        this.bindHeroPosition();
 
         this.directionInput = new DirectionInput();
         this.directionInput.init();

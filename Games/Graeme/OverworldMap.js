@@ -2,6 +2,7 @@ class OverworldMap {
     constructor(config) {
         this.gameObjects = config.gameObjects;
         this.walls = config.walls || {};
+        this.cutsceneSpaces = config.cutsceneSpaces || {};
 
         this.lowerImage = new Image();
         this.lowerImage.src = config.lowerSrc;
@@ -70,6 +71,14 @@ class OverworldMap {
         }
     }
 
+    checkForPositionalCutscene() {
+        const hero = this.gameObjects["hero"];
+        const match = this.cutsceneSpaces[ `${hero.x},${hero.y}`];
+        if (!this.isCutscenePlaying && match) {
+            this.startCutscene( match[0].events );
+        }
+    }
+
     addWall(x, y) {
         this.walls[`${x},${y}`] = true;
     }
@@ -99,27 +108,60 @@ window.OverworldMaps = {
                 y: utils.withGrid(12),
                 src: "/images/characters/animal/doggo.png"
             }),
-            npc1: new Person({
-                x:utils.withGrid(8),
-                y:utils.withGrid(14),
-                src: "/images/characters/enemy/ninja.png",
+            farmer_girl: new Person({
+                x:utils.withGrid(7),
+                y:utils.withGrid(7),
+                src: "/images/characters/female/farmer_girl.png",
                 behaviourLoop: [
-                    {type: "walk", direction: "left"},
-                    {type: "stand", direction: "up", time: 800},
+                    {type: "stand", direction: "left", time: 800},
+                    {type: "walk", direction: "down"},
+                    {type: "walk", direction: "down"},
+                    {type: "walk", direction: "down"},
+                    {type: "walk", direction: "down"},
+                    {type: "walk", direction: "right"},
+                    {type: "walk", direction: "right"},
+                    {type: "walk", direction: "right"},
+                    {type: "walk", direction: "right"},
                     {type: "walk", direction: "up"},
                     {type: "walk", direction: "right"},
-                    {type: "walk", direction: "down"}
+                    {type: "walk", direction: "right"},
+                    {type: "walk", direction: "right"},
+                    {type: "walk", direction: "right"},
+                    {type: "walk", direction: "right"},
+                    {type: "walk", direction: "right"},
+                    {type: "walk", direction: "up"},
+                    {type: "walk", direction: "up"},
+                    {type: "walk", direction: "up"},
+                    {type: "stand", direction: "left", time: 1600},
+                    {type: "walk", direction: "down"},
+                    {type: "walk", direction: "down"},
+                    {type: "walk", direction: "down"},
+                    {type: "walk", direction: "left"},
+                    {type: "walk", direction: "left"},
+                    {type: "walk", direction: "left"},
+                    {type: "walk", direction: "left"},
+                    {type: "walk", direction: "down"},
+                    {type: "walk", direction: "left"},
+                    {type: "walk", direction: "left"},
+                    {type: "walk", direction: "left"},
+                    {type: "walk", direction: "left"},
+                    {type: "walk", direction: "left"},
+                    {type: "walk", direction: "left"},
+                    {type: "walk", direction: "up"},
+                    {type: "walk", direction: "up"},
+                    {type: "walk", direction: "up"},
+                    {type: "walk", direction: "up"},
                 ],
                 talking: [
                     {
                         events: [
-                            {type: "textMessage", text: "I'm busy...", faceHero: "npc1"},
+                            {type: "textMessage", text: "I'm busy...", faceHero: "farmer_girl"},
                             {type: "textMessage", text: "Go away please"}
                         ]
                     }
                 ]
             }),
-            npc2: new Person({
+            guard: new Person({
                 x:utils.withGrid(7),
                 y:utils.withGrid(19),
                 src: "/images/characters/soldier/guard.png",
@@ -129,10 +171,25 @@ window.OverworldMaps = {
                 talking: [
                     {
                         events: [
-                            {type: "textMessage", text: "Sorry, the bridge isn't safe at the moment", faceHero: "npc2"},
+                            {type: "textMessage", text: "Sorry, the bridge isn't safe at the moment", faceHero: "guard"},
                             {type: "textMessage", text: "Seriously, you'd die"},
                             {type: "textMessage", text: "Maybe if the dev finished the rest of the game, you'd be able to pass."},
                             {who: "hero", type: "stand", direction: "up", time: 10}
+                        ]
+                    }
+                ]
+            }),
+            grieving_son: new Person({
+                x:utils.withGrid(23),
+                y:utils.withGrid(4),
+                src: "/images/characters/male/grieving_son.png",
+                behaviourLoop: [
+                    {type: "stand", direction: "right", time: 1000},
+                ],
+                talking: [
+                    {
+                        events: [
+                            {type: "textMessage", text: "quiet sobbing.."},
                         ]
                     }
                 ]
@@ -505,6 +562,25 @@ window.OverworldMaps = {
             [utils.asGridCoord(46, 20)] : true,
             [utils.asGridCoord(47, 20)] : true,
             [utils.asGridCoord(54, 20)] : true,
+        },
+        cutsceneSpaces: {
+            [utils.asGridCoord(24, 5)]: [
+                {
+                    events: [
+                        {who: "hero", type: "stand", direction: "up", time: 1600},
+                        {type: "textMessage", text: "This is someone's grave. It says 'Taken too soon'.."},
+                        {who: "grieving_son", type: "walk", direction: "down"},
+                        {who: "grieving_son", type: "stand", direction: "right", time: 10},
+                        {who: "hero", type: "stand", direction: "left", time: 10},
+                        {type: "textMessage", text: "Son: This is my father's grave.."},
+                        {type: "textMessage", text: "Son: He was murdered on my 10th birthday.."},
+                        {type: "textMessage", text: "Son: I've been training for years.."},
+                        {type: "textMessage", text: "Son: One day, I will have my revenge!!!"},
+                        {who: "grieving_son", type: "walk", direction: "up"},
+                        {who: "grieving_son", type: "stand", direction: "right", time: 10},
+                    ]
+                }
+            ]
         }
     }
 }
