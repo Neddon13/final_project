@@ -9,7 +9,7 @@ class OverworldMap {
         this.lowerImage.src = config.lowerSrc;
 
         this.upperImage = new Image();
-        this.upperSrc = config.upperSrc;
+        this.upperImage.src = config.upperSrc;
 
         this.isCutscenePlaying = false;
     }
@@ -98,7 +98,7 @@ class OverworldMap {
 window.OverworldMaps = {
     Demo: {
         lowerSrc: "/images/maptileset/samplemap/samplemap.png",
-        upperSrc: "/images/maptileset/samplemap/samplemap.png",
+        upperSrc: "/images/maptileset/samplemap/samplemapupper.png",
         gameObjects: {
             hero: new Person({
                 isPlayerControlled: true,
@@ -689,15 +689,96 @@ window.OverworldMaps = {
         }
     },
     Farmhouse: {
-        lowerSrc: "/images/maptileset/samplemap/samplemap2.png",
+        lowerSrc: "/images/maptileset/farmhouse_main.png",
+        upperSrc: "/images/maptileset/farmhouse_main_upper.png",
         gameObjects: {
             hero: new Person({
                 isPlayerControlled: true,
-                x: utils.withGrid(1),
-                y: utils.withGrid(1),
+                x: utils.withGrid(16),
+                y: utils.withGrid(9),
+                direction: "up"
             }),
         },
-        walls: {},
-        cutsceneSpaces: {}
+        walls: {
+
+            // Row 2
+            [utils.asGridCoord(8, 2)] : true,
+            [utils.asGridCoord(9, 2)] : true,
+            [utils.asGridCoord(10, 2)] : true,
+            [utils.asGridCoord(11, 2)] : true,
+            [utils.asGridCoord(12, 2)] : true,
+            [utils.asGridCoord(13, 2)] : true,
+            [utils.asGridCoord(14, 2)] : true,
+            [utils.asGridCoord(15, 2)] : true,
+            [utils.asGridCoord(16, 2)] : true,
+            [utils.asGridCoord(17, 2)] : true,
+
+            //Row 3
+            [utils.asGridCoord(7, 3)] : true,
+            [utils.asGridCoord(18, 3)] : true,
+
+            // Row 4
+            [utils.asGridCoord(1, 4)] : true,
+            [utils.asGridCoord(2, 4)] : true,
+            [utils.asGridCoord(3, 4)] : true,
+            [utils.asGridCoord(4, 4)] : true,
+            [utils.asGridCoord(5, 4)] : true,
+            [utils.asGridCoord(7, 4)] : true,
+            [utils.asGridCoord(18, 4)] : true,
+
+            //Row 5
+            [utils.asGridCoord(0, 5)] : true,
+            [utils.asGridCoord(6, 5)] : true,
+            [utils.asGridCoord(9, 5)] : true,
+            [utils.asGridCoord(10, 5)] : true,
+            [utils.asGridCoord(11, 5)] : true,
+            [utils.asGridCoord(12, 5)] : true,
+            [utils.asGridCoord(18, 5)] : true,
+
+            //Row 6
+            [utils.asGridCoord(0, 6)] : true,
+            [utils.asGridCoord(9, 6)] : true,
+            [utils.asGridCoord(10, 6)] : true,
+            [utils.asGridCoord(11, 6)] : true,
+            [utils.asGridCoord(12, 6)] : true,
+            [utils.asGridCoord(18, 6)] : true,
+
+            //Row 7
+            [utils.asGridCoord(1, 7)] : true,
+            [utils.asGridCoord(2, 7)] : true,
+            [utils.asGridCoord(3, 7)] : true,
+            [utils.asGridCoord(4, 7)] : true,
+            [utils.asGridCoord(5, 7)] : true,
+            [utils.asGridCoord(18, 7)] : true,
+
+            //Row 8
+            [utils.asGridCoord(6, 8)] : true,
+            [utils.asGridCoord(19, 8)] : true,
+
+            //Row 9
+            [utils.asGridCoord(7, 9)] : true,
+            [utils.asGridCoord(8, 9)] : true,
+            [utils.asGridCoord(9, 9)] : true,
+            [utils.asGridCoord(10, 9)] : true,
+            [utils.asGridCoord(11, 9)] : true,
+            [utils.asGridCoord(12, 9)] : true,
+            [utils.asGridCoord(13, 9)] : true,
+            [utils.asGridCoord(14, 9)] : true,
+            [utils.asGridCoord(15, 9)] : true,
+            [utils.asGridCoord(17, 9)] : true,
+            [utils.asGridCoord(18, 9)] : true,
+
+            //Row 10
+            [utils.asGridCoord(16, 10)] : true,
+        },
+        cutsceneSpaces: {
+            [utils.asGridCoord(16, 9)]: [
+                {
+                    events: [
+                        {type: "changeMap", map: "Demo"}
+                    ]
+                }
+            ]
+        }
     }
 }
