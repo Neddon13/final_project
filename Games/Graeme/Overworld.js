@@ -69,11 +69,12 @@ class Overworld {
         this.startGameLoop();
 
         this.map.startCutscene([
+            // { type: "changeMap", map: "Farmhouse"}
             { type: "textMessage", text: "Welcome to CodecLAND, feel free to explore and talk to people!" },
-            // { who: "hero", type: "stand", direction: "left", time: 100},
-            // { who: "hero", type: "stand", direction: "up", time: 100},
-            // { who: "hero", type: "stand", direction: "right", time: 100},
-            // { who: "hero", type: "stand", direction: "down", time: 100},
+            { who: "hero", type: "stand", direction: "left", time: 100},
+            { who: "hero", type: "stand", direction: "up", time: 100},
+            { who: "hero", type: "stand", direction: "right", time: 100},
+            { who: "hero", type: "stand", direction: "down", time: 100},
         ])
     }
 }
