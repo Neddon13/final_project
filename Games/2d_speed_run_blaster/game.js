@@ -68,16 +68,16 @@ scene("game", () => {
     [
         '',
         '',
-        '',
-        '',
-        '',
-        '',
-        '',
-        '',
-        '',
-        '',
-        '',
-        '',
+        'a',
+        'a',
+        'a',
+        'a',
+        'q',
+        'z',
+        'x',
+        'c',
+        'd',
+        'e',
     ],  
     [
 
@@ -101,32 +101,38 @@ scene("game", () => {
         d: [sprite('right-wall'), solid(), 'wall'],
         
         
-        a: [sprite(), solid()],
-        a: [sprite(), solid()],
-        a: [sprite(), solid()],
-        a: [sprite(), solid()],
-        a: [sprite(), solid()],
-        a: [sprite(), solid()],
-        a: [sprite(), solid()],
-        a: [sprite(), solid()],
-        a: [sprite(), solid()],
-        a: [sprite(), solid()],
-        a: [sprite(), solid()],
-        a: [sprite(), solid()],
-        a: [sprite(), solid()],
-        a: [sprite(), solid()],
-        a: [sprite(), solid()],
-        a: [sprite(), solid()],
-        a: [sprite(), solid()],
-        a: [sprite(), solid()],
-        a: [sprite(), solid()],
-        a: [sprite(), solid()],
-        a: [sprite(), solid()],
-        a: [sprite(), solid()],
-        a: [sprite(), solid()],
-        a: [sprite(), solid()],
-    }
+        f: [sprite('left-wall-Y-flag'), solid(), 'wall'],
+        r: [sprite('left-wall-G-flag'), solid(), 'wall'],
+        v: [sprite('left-wall-R-flag'), solid(), 'wall'],
+        b: [sprite('left-wall-B-flag'), solid(), 'wall'],
 
+        t: [sprite('right-wall-Y-flag'), solid(), 'wall'],
+        g: [sprite('right-wall-G-flag'), solid(), 'wall'],
+        y: [sprite('right-wall-R-flag'), solid(), 'wall'],
+        h: [sprite('right-wall-B-flag'), solid(), 'wall'],
+
+        n: [sprite('pillar-top'), solid(), 'wall'],
+        u: [sprite('pillar-body'), solid(), 'wall'],
+        j: [sprite('pillar-base'), solid(), 'wall'],
+
+        m: [sprite('ladders-up-or-down-right-side'), 'next-level'],
+        i: [sprite('ladders-up'), 'next-level'],
+        k: [sprite('ladders-up-exit-hole'), solid(), 'wall'],
+
+        o: [sprite('bottom-right-next-level-door'), 'next-level'],
+        l: [sprite('bottom-left-next-level-door'), 'next-level'],
+
+        p: [sprite('stairs-right'), 'next-level'],
+
+        '~': [sprite('gunge-flow-top'), solid(), 'wall'],
+        '$': [sprite('water-flow-top'), solid(), 'wall'],
+        '^': [sprite('lava-flow-top'), solid(), 'wall'],
+        '(': [sprite('gunge-flow-bottom'), 'cool' ],
+        ')': [sprite('water-flow-bottom'), 'cool'],
+        '_': [sprite('lava-flow-bottom'), 'cool'],
+        '-': [sprite('shadow'), solid()],
+    }
+    addLevel(map, level_creation)
 })
   
 start("game")
