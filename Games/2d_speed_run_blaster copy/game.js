@@ -201,10 +201,10 @@ scene('game', ({ level, score }) => {
 
 
     // door
-    'o': [sprite('bottom-right-next-level-door'), 'next-level'],
-    'l': [sprite('bottom-left-next-level-door'), 'next-level'],
-    '<': [sprite('top-left-door'), solid(), 'wall'],
-    '>': [sprite('top-right-door'), solid(), 'wall'],
+    'o': [sprite('bottom-right-next-level-door'), 'next-level', 'door'],
+    'l': [sprite('bottom-left-next-level-door'), 'next-level', 'door'],
+    '<': [sprite('top-left-door'), solid(), 'wall', 'door'],
+    '>': [sprite('top-right-door'), solid(), 'wall', 'door'],
     //
 
 
@@ -246,7 +246,7 @@ scene('game', ({ level, score }) => {
   ])
 
   // shows what level you are on 
-  add([text('level ' + parseInt(level + 1)), pos(250, 1250), scale(1.5)])
+  add([text('level ' + parseInt(level + 1)), pos(250, 125), scale(1.5)])
   //
 
 
@@ -267,7 +267,7 @@ scene('game', ({ level, score }) => {
   }) 
   //
 
-
+ 
   //
   player.overlaps('next-level', () => {
     go('game', {
@@ -354,7 +354,7 @@ scene('game', ({ level, score }) => {
   })
   //
 
-
+  //
   action('goblin', (s) => {
     s.move(s.dir * goblin_Speed, 0)
   })
@@ -362,27 +362,37 @@ scene('game', ({ level, score }) => {
   collides('goblin', 'wall', (s) => {
     s.dir = -s.dir
   })
+  //
 
+
+  //
   action('skeletor', (s) => {
     s.move(0, s.dir * SKELETOR_SPEED)
     s.timer -= dt()
     if (s.timer <= 0) {
       s.dir = -s.dir
-      s.timer = rand(5)
+      s.timer = rand(8)
     }
   })
 
   collides('skeletor', 'wall', (s) => {
     s.dir = -s.dir
   })
+  //
 
+
+  //
   player.overlaps('dangerous', () => {
     go('lose', { score: scoreLabel.value })
   })
 })
+//
 
+
+//
 scene('lose', ({ score }) => {
   add([text(score, 32), origin('center'), pos(width() / 2, height() / 2)])
 })
 
 start('game', { level: 0, score: 0 })
+//
