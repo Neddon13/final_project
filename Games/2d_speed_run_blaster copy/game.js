@@ -239,9 +239,9 @@ scene('game', ({ level, score }) => {
     text(' score: 0'),
     pos(238, 100),
     layer('ui'),
-    {
-      value: score,
-    },
+    // {
+    //   value: score,
+    // },
     scale(1.5),
   ])
 
@@ -282,7 +282,6 @@ scene('game', ({ level, score }) => {
   player.overlaps('previous-level', () => {
     go('game', {
       level: (level - 1) % maps.length,
-      score: scoreLabel.value,
     })
   })
   //
@@ -371,7 +370,7 @@ scene('game', ({ level, score }) => {
     s.timer -= dt()
     if (s.timer <= 0) {
       s.dir = -s.dir
-      s.timer = rand(8)
+      s.timer = rand(5)
     }
   })
 
@@ -395,4 +394,3 @@ scene('lose', ({ score }) => {
 })
 
 start('game', { level: 0, score: 0 })
-//
