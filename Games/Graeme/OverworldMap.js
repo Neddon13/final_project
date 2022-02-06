@@ -69,7 +69,14 @@ class OverworldMap {
         })
 
         if (!this.isCutscenePlaying && match && match.talking.length) {
-            this.startCutscene(match.talking[0].events)
+
+            const relevantScenario = match.talking.find(scenario => {
+                return (scenario.required || []).every(sf => {
+                    return playerState.storyFlags[sf]
+                })
+            })
+            console.log(relevantScenario)
+            relevantScenario && this.startCutscene(relevantScenario.events)
         }
     }
 
@@ -125,47 +132,8 @@ window.OverworldMaps = {
                 src: "/images/characters/female/farmer_girl.png",
                 behaviourLoop: [
                     {type: "stand", direction: "left", time: 1600},
-                    {type: "walk", direction: "down"},
-                    {type: "walk", direction: "down"},
-                    {type: "walk", direction: "down"},
-                    {type: "walk", direction: "down"},
-                    {type: "walk", direction: "right"},
-                    {type: "walk", direction: "right"},
-                    {type: "walk", direction: "right"},
-                    {type: "walk", direction: "down"},
-                    {type: "walk", direction: "right"},
-                    {type: "walk", direction: "right"},
-                    {type: "walk", direction: "right"},
-                    {type: "walk", direction: "right"},
-                    {type: "walk", direction: "right"},
-                    {type: "walk", direction: "right"},
-                    {type: "walk", direction: "up"},
-                    {type: "walk", direction: "right"},
-                    {type: "walk", direction: "up"},
-                    {type: "walk", direction: "up"},
-                    {type: "walk", direction: "up"},
-                    {type: "walk", direction: "up"},
-                    {type: "stand", direction: "left", time: 3200},
-                    {type: "walk", direction: "down"},
-                    {type: "walk", direction: "down"},
-                    {type: "walk", direction: "down"},
-                    {type: "walk", direction: "down"},
-                    {type: "walk", direction: "left"},
-                    {type: "walk", direction: "down"},
-                    {type: "walk", direction: "left"},
-                    {type: "walk", direction: "left"},
-                    {type: "walk", direction: "left"},
-                    {type: "walk", direction: "left"},
-                    {type: "walk", direction: "left"},
-                    {type: "walk", direction: "left"},
-                    {type: "walk", direction: "up"},
-                    {type: "walk", direction: "left"},
-                    {type: "walk", direction: "left"},
-                    {type: "walk", direction: "left"},
-                    {type: "walk", direction: "up"},
-                    {type: "walk", direction: "up"},
-                    {type: "walk", direction: "up"},
-                    {type: "walk", direction: "up"},
+                    {type: "stand", direction: "right", time: 1600},
+                    {type: "stand", direction: "up", time: 1600},
                 ],
                 talking: [
                     {
@@ -203,8 +171,18 @@ window.OverworldMaps = {
                 ],
                 talking: [
                     {
+                        required: [
+                            "VIEWED_GRAVE_CUTSCENE"
+                        ],
                         events: [
-                            {type: "textMessage", text: "Sad boy: quiet sobbing.."},
+                            {who: "grieving_son", type: "stand", direction: "down", time: 100},
+                            {type: "textMessage", text: "I WILL have my revenge!"},
+                            {who: "grieving_son", type: "stand", direction: "right", time: 100}
+                        ]
+                    },
+                    {
+                        events: [
+                            {type: "textMessage", text: "Sad boy: quiet sobbing.."}
                         ]
                     }
                 ]
@@ -677,6 +655,7 @@ window.OverworldMaps = {
                         {type: "textMessage", text: "Sad boy: One day, I will have my revenge!!!"},
                         {who: "grieving_son", type: "walk", direction: "up"},
                         {who: "grieving_son", type: "stand", direction: "right", time: 10},
+                        {type: "addStoryFlag", flag: "VIEWED_GRAVE_CUTSCENE"}
                     ]
                 }
             ],
