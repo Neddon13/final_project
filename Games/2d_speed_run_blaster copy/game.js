@@ -9,7 +9,7 @@ kaboom({  // setup for Kaboom game library and is importated through html file
 // // player, enemey and boss speed 
 const player_Speed = 60
 const goblin_Speed = 40
-const SKELETOR_SPEED = 60
+const Skelly_Speed = 30
 
 // Game Logic
 loadRoot('https://i.imgur.com/') //loading in sprites for game characters and objects for mapping levels though imgur account
@@ -74,6 +74,8 @@ loadSprite('top-wall', 'PatuSh9.png') //S
   loadSprite('lava-flow-bottom', '3DXREXE.png') //NS
 
   loadSprite('coin', 'w9iby1M.png') //NS
+  loadSprite('chest', 'nIDAjja.png') //NS
+
 
   
 
@@ -83,7 +85,8 @@ loadSprite('top-wall', 'PatuSh9.png') //S
 
 loadSprite('goblin', 'fQjAh0x.png')
 loadSprite('goblin-still', 'fQjAh0x.png')
-loadSprite('skeletor', 'Ei1VnX8.png')
+loadSprite('skelly-still', '1K34y4u.png')
+loadSprite('skelly', '1K34y4u.png')
 loadSprite('bullet', 'vYBHauP.png')
 
 
@@ -110,31 +113,31 @@ scene('game', ({ level, score }) => {
     ],
     [
       '--------------',
-      '-qw~ww<>ww~we-',
-      '-aC(  lo  (Cd-',
-      '-r n   *  n d-',
-      '-a uC    Cu d-',
-      '-a u  *   u d-',
-      '-a j      j d-',
-      '-a n      n d-',
-      '-a u      u d-',
-      '-a uC    Cu d-',
-      '-a j      j d-',
-      '-aC        Cd-',
-      '-zxAxxxxxxAxc-',
+      '-qww~ww<>ww~we-',
+      '-aC(  lo   (Cd-',
+      '-r n      *n d-',
+      '-a uC  *  Cu d-',
+      '-a u*      u d-',
+      '-a j       j d-',
+      '-a n   Z   n d-',
+      '-a u  Z Z  u d-',
+      '-a uCZ   ZCu d-',
+      '-a j       j d-',
+      '-aC         Cd-',
+      '-zxAxxxxxxAxxc-',
       '--------------'
    
     ],
     [
         '--------------',
-        '-qw~ww<>ww~we-',
-        '-aC(  lo  (Cd-',
+        '-qw~wwwwww~we-',
+        '-aC(  WW  (Cd-',
         '-r n   *  n d-',
-        '-a uC    Cu d-',
+        '-a uC }} Cu d-',
         '-a u  *   u d-',
-        '-a j      j d-',
+        '-a j  }}  j d-',
         '-a n      n d-',
-        '-a u      u d-',
+        '-a u  }}  u d-',
         '-a uC    Cu d-',
         '-a j      j d-',
         '-aC        Cd-',
@@ -151,7 +154,7 @@ scene('game', ({ level, score }) => {
 
     // undecorated walls
     'q': [sprite('top-left-corner'), solid(), 'wall'],
-    'w': [sprite('top-wall'), solid()],
+    'w': [sprite('top-wall'), solid(), 'wall'],
     'e': [sprite('top-right-corner'), solid(), 'wall'],
     'a': [sprite('left-wall'), solid(), 'wall'],
     'z': [sprite('bottom-left-corner'), solid(), 'wall'],
@@ -226,13 +229,15 @@ scene('game', ({ level, score }) => {
     ')': [sprite('water-flow-bottom'), 'cool'],
     '_': [sprite('lava-flow-bottom'), 'cool'],
     'C': [sprite('coin'), 'point'],
+    'W': [sprite('chest'), 'win', solid() , 'wall'],
     //
 
     // enemies
-    '-': [sprite('shadow'), solid()],
+    '-': [sprite('shadow'), solid(), 'wall'],
     '*': [sprite('goblin'), 'goblin', { dir: -1 }, 'dangerous'],
     'G': [sprite('goblin-still'), 'goblin', { dir: 0 }, 'dangerous'],
-    '}': [sprite('skeletor'), 'dangerous', 'skeletor', { dir: -1, timer: 0 }],
+    '}': [sprite('skelly'), 'dangerous', 'skelly', { dir: -1, timer: 0 }],
+    'Z': [sprite('skelly-still'), 'dangerous', 'skelly', { dir: 0, timer: 0 }],
    
   }
 
@@ -324,8 +329,8 @@ scene('game', ({ level, score }) => {
 
 
   //
-  function fire(p) {
-    const obj = add([sprite('bullet'), pos(p), 'bullet'])
+  function fire(bullet) {
+    const obj = add([sprite('bullet'), pos(bullet), 'bullet'])
     wait(0.2, () => {
       destroy(obj)
     })
@@ -338,59 +343,58 @@ scene('game', ({ level, score }) => {
 
 
   //
-  collides('bullet', 'skeletor', (bullet,s) => {
-    camShake(40)
+  collides('bullet', 'goblin', (bullet, goblin) => {
+    camShake(4)
     wait(0.5, () => {
       destroy(bullet)
     })
-    destroy(s)
+    destroy(goblin)
     scoreLabel.value++
     scoreLabel.text = scoreLabel.value
   })
   //
 
-
   //
-  collides('bullet', 'goblin', (g,s) => {
-    camShake(4)
-    wait(1, () => {
-      destroy(g)
+  collides('bullet', 'skelly', (bullet, skelly) => {
+    camShake(1)
+    wait(0.5, () => {
+      destroy(bullet)
     })
-    destroy(s)
-    scoreLabel.value++
+    destroy(skelly)
+    scoreLabel.value + 2
     scoreLabel.text = scoreLabel.value
   })
   //
 
-  player.collides('point', (p) => {
-    destroy(p)
+  player.collides('point', (point) => {
+    destroy(point)
     scoreLabel.value++
     scoreLabel.text = scoreLabel.value
   })
 
   //
-  action('goblin', (s) => {
-    s.move(s.dir * goblin_Speed, 0)
+  action('goblin', (goblin) => {
+    goblin.move(goblin.dir * goblin_Speed, 0)
   })
 
-  collides('goblin', 'wall', (s) => {
-    s.dir = -s.dir
+  collides('goblin', 'wall', (goblin) => {
+    goblin.dir = -goblin.dir
   })
   //
 
 
   //
-  action('skeletor', (s) => {
-    s.move(0, s.dir * SKELETOR_SPEED)
-    s.timer -= dt()
-    if (s.timer <= 0) {
-      s.dir = -s.dir
-      s.timer = rand(7.5)
+  action('skelly', (skelly) => {
+    skelly.move(0, skelly.dir * Skelly_Speed)
+    skelly.timer -= dt()
+    if (skelly.timer <= 0) {
+      skelly.dir = -skelly.dir
+      skelly.timer = rand(5)
     }
   })
 
-  collides('skeletor', 'wall', (s) => {
-    s.dir = -s.dir
+  collides('skelly', 'wall', (skelly) => {
+    skelly.dir = -skelly.dir
   })
   //
 
@@ -399,13 +403,28 @@ scene('game', ({ level, score }) => {
   player.overlaps('dangerous', () => {
     go('lose', { score: scoreLabel.value })
   })
-})
-//
+
+
+  player.collides('win', () => {
+    go('win', { score: scoreLabel.value })
+  })
+
+
+}) 
+// game logic finsihed 
+
+
 
 
 //
 scene('lose', ({ score }) => {
-  add([text('Score: ' + parseInt (score)), origin('center'), pos(width() / 2, height() / 2)])
+  add([text(' You lose try again! Score: ' + parseInt (score)), origin('center'), pos(width() / 2, height() / 2)])
+
+})
+
+scene('win', ({ score }) => {
+  add([text(' Congrats you completed the game! Your final Score: ' + parseInt (score)), origin('center'), pos(width() / 2, height() / 2)])
+
 })
 
 start('game', { level: 0, score: 0 })
