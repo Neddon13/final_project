@@ -73,11 +73,16 @@ loadSprite('top-wall', 'PatuSh9.png') //S
   loadSprite('lava-flow-top', '5TW0ktX.png') //S
   loadSprite('lava-flow-bottom', '3DXREXE.png') //NS
 
+  loadSprite('coin', 'w9iby1M.png') //NS
+
+  
+
   loadSprite('shadow', 'DhrVZ0n.png') //S
 
   loadSprite('bg', 'TwsHMKh.png') //NS
 
 loadSprite('goblin', 'fQjAh0x.png')
+loadSprite('goblin-still', 'fQjAh0x.png')
 loadSprite('skeletor', 'Ei1VnX8.png')
 loadSprite('bullet', 'vYBHauP.png')
 
@@ -90,50 +95,50 @@ scene('game', ({ level, score }) => {
     [
         '--------------',
         '-qw~ww<>ww~we-',
-        '-a (  lo  ( d-',
-        '-r n   *  n d-',
-        '-a u      u d-',
-        '-a u  *   u d-',
+        '-aC(  lo  (Cd-',
+        '-r n   G  n d-',
+        '-a uC    Cu d-',
+        '-a u  G   u d-',
         '-a j      j d-',
-        '-a n      n d-',
+        '-a n  G   n d-',
         '-a u      u d-',
-        '-a u      u d-',
-        '-a j      j d-',
-        '-a          d-',
+        '-a uC    Cu d-',
+        '-a jG     j d-',
+        '-aC        Cd-',
         '-zxAxxxxxxAxc-',
         '--------------'
     ],
     [
-        '--------------',
-        '-qw~ww<>ww~we-',
-        '-a (  lo  ( d-',
-        '-r          d-',
-        '-a          d-',
-        '-a          d-',
-        '-a          d-',
-        '-a          d-',
-        '-a          d-',
-        '-a          d-',
-        '-a          d-',
-        '-a          d-',
-        '-zxxxx--xxxxc-',
-        '--------------'
+      '--------------',
+      '-qw~ww<>ww~we-',
+      '-aC(  lo  (Cd-',
+      '-r n   *  n d-',
+      '-a uC    Cu d-',
+      '-a u  *   u d-',
+      '-a j      j d-',
+      '-a n      n d-',
+      '-a u      u d-',
+      '-a uC    Cu d-',
+      '-a j      j d-',
+      '-aC        Cd-',
+      '-zxAxxxxxxAxc-',
+      '--------------'
    
     ],
     [
         '--------------',
         '-qw~ww<>ww~we-',
-        '-a (  lo  ( d-',
-        '-r          d-',
-        '-a n        d-',
-        '-a u        d-',
-        '-a j        d-',
-        '-a          d-',
+        '-aC(  lo  (Cd-',
+        '-r n   *  n d-',
+        '-a uC    Cu d-',
+        '-a u  *   u d-',
+        '-a j      j d-',
         '-a n      n d-',
         '-a u      u d-',
+        '-a uC    Cu d-',
         '-a j      j d-',
-        '-a          d-',
-        '-zxxxx--xxxxc-',
+        '-aC        Cd-',
+        '-zxAxxxxxxAxc-',
         '--------------'
 
     ]
@@ -220,11 +225,13 @@ scene('game', ({ level, score }) => {
     '(': [sprite('gunge-flow-bottom'), 'cool' ],
     ')': [sprite('water-flow-bottom'), 'cool'],
     '_': [sprite('lava-flow-bottom'), 'cool'],
+    'C': [sprite('coin'), 'point'],
     //
 
     // enemies
-    '-': [sprite('shadow'), 'previous-level'],
+    '-': [sprite('shadow'), solid()],
     '*': [sprite('goblin'), 'goblin', { dir: -1 }, 'dangerous'],
+    'G': [sprite('goblin-still'), 'goblin', { dir: 0 }, 'dangerous'],
     '}': [sprite('skeletor'), 'dangerous', 'skeletor', { dir: -1, timer: 0 }],
    
   }
@@ -237,7 +244,7 @@ scene('game', ({ level, score }) => {
 
   //
   const scoreLabel = add([
-    text(' score: '),
+    text(' score: 0'),
     pos(238, 100),
     layer('ui'),
     {
@@ -279,12 +286,13 @@ scene('game', ({ level, score }) => {
   //
 
 
-  //
-  player.overlaps('previous-level', () => {
-    go('game', {
-      level: (level - 1) % maps.length,
-    })
-  })
+  // taken out as dont see real game use/purpose for this 
+  // player.overlaps('previous-level', () => {
+  //   go('game', {
+  //     level: (level - 1) % maps.length,
+  //     score: scoreLabel.value,
+  //   })
+  // })
   //
 
 
@@ -354,6 +362,12 @@ scene('game', ({ level, score }) => {
   })
   //
 
+  player.collides('point', (p) => {
+    destroy(p)
+    scoreLabel.value++
+    scoreLabel.text = scoreLabel.value
+  })
+
   //
   action('goblin', (s) => {
     s.move(s.dir * goblin_Speed, 0)
@@ -371,7 +385,7 @@ scene('game', ({ level, score }) => {
     s.timer -= dt()
     if (s.timer <= 0) {
       s.dir = -s.dir
-      s.timer = rand(5)
+      s.timer = rand(7.5)
     }
   })
 
@@ -391,7 +405,7 @@ scene('game', ({ level, score }) => {
 
 //
 scene('lose', ({ score }) => {
-  add([text(score, 32), origin('center'), pos(width() / 2, height() / 2)])
+  add([text('Score: ' + parseInt (score, 32)), origin('center'), pos(width() / 2, height() / 2)])
 })
 
 start('game', { level: 0, score: 0 })
