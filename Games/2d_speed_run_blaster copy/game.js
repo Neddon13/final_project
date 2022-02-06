@@ -96,7 +96,7 @@ scene('game', ({ level, score }) => {
         '--------------',
         '-qw~ww<>ww~we-',
         '-aC(  lo  (Cd-',
-        '-r n   G  n d-',
+        '-r n     Gn d-',
         '-a uC    Cu d-',
         '-a u  G   u d-',
         '-a j      j d-',
@@ -405,7 +405,7 @@ scene('game', ({ level, score }) => {
 
 //
 scene('lose', ({ score }) => {
-  add([text('Score: ' + parseInt (score, 32)), origin('center'), pos(width() / 2, height() / 2)])
+  add([text('Score: ' + parseInt (score)), origin('center'), pos(width() / 2, height() / 2)])
 })
 
 start('game', { level: 0, score: 0 })
