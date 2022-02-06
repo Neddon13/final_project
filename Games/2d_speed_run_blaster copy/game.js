@@ -427,4 +427,6 @@ scene('win', ({ score }) => {
 
 })
 
+// start('game', { level: 0, score: 0 })
+
 start('game', { level: 0, score: 0 })
