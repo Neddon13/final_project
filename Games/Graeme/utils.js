@@ -38,6 +38,14 @@ const utils = {
         } else {
             return "down"
         }
-    }
+    },
+
+    wait(ms) {
+        return new Promise(resolve => {
+          setTimeout(() => {
+            resolve()
+          }, ms)
+        })
+      },
 
 }

@@ -30,9 +30,12 @@ class Overworld {
 
             this.map.drawUpperImage(this.ctx, cameraPerson);
             
-            requestAnimationFrame(() => {
-                step();
-            })
+            if (!this.map.isPaused) {
+                requestAnimationFrame(() => {
+                    step();
+                })
+            }
+            
         }
         step();
     }
@@ -41,6 +44,14 @@ class Overworld {
         new KeyPressListener("Enter", () => {
             // Is there an interactible object here?
             this.map.checkForActionCutscene();
+        })
+
+        new KeyPressListener("Escape", () => {
+            if (!this.map.isCutscenePlaying) {
+                this.map.startCutscene([
+                    {type: "pause"}
+                ])
+            };
         })
     }
 
@@ -70,11 +81,11 @@ class Overworld {
 
         this.map.startCutscene([
             // { type: "changeMap", map: "Farmhouse"}
-            { type: "textMessage", text: "Welcome to CodecLAND, feel free to explore and talk to people!" },
-            { who: "hero", type: "stand", direction: "left", time: 100},
-            { who: "hero", type: "stand", direction: "up", time: 100},
-            { who: "hero", type: "stand", direction: "right", time: 100},
-            { who: "hero", type: "stand", direction: "down", time: 100},
+            // { type: "textMessage", text: "Welcome to CodecLAND, feel free to explore and talk to people!" },
+            // { who: "hero", type: "stand", direction: "left", time: 100},
+            // { who: "hero", type: "stand", direction: "up", time: 100},
+            // { who: "hero", type: "stand", direction: "right", time: 100},
+            // { who: "hero", type: "stand", direction: "down", time: 100},
         ])
     }
 }

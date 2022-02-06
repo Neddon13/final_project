@@ -12,6 +12,7 @@ class OverworldMap {
         this.upperImage.src = config.upperSrc;
 
         this.isCutscenePlaying = false;
+        this.isPaused = false;
     }
 
     drawLowerImage(ctx, cameraPerson) {
@@ -185,8 +186,8 @@ window.OverworldMaps = {
                 talking: [
                     {
                         events: [
-                            {type: "textMessage", text: "Guard: Sorry, the bridge isn't safe at the moment", faceHero: "guard"},
-                            {type: "textMessage", text: "Guard: Seriously, you'd die"},
+                            {type: "textMessage", text: "Guard: The bridge has collapsed...", faceHero: "guard"},
+                            {type: "textMessage", text: "Guard: This game has no swimming capabilities..."},
                             {type: "textMessage", text: "Guard: Maybe if the dev finished the rest of the game, you'd be able to pass."},
                             {who: "hero", type: "stand", direction: "up", time: 10}
                         ]
@@ -778,7 +779,103 @@ window.OverworldMaps = {
                         {type: "changeMap", map: "Demo"}
                     ]
                 }
+            ],
+            [utils.asGridCoord(10, 3)]: [
+                {
+                    events: [
+                        {type: "changeMap", map: "FarmhouseBasement"}
+                    ]
+                }
+            ]
+
+        }
+    },
+    FarmhouseBasement: {
+        lowerSrc: "/images/maptileset/farmhouse_basement_lower.png",
+        upperSrc: "/images/maptileset/farmhouse_basement_upper.png",
+        gameObjects: {
+            hero: new Person({
+                isPlayerControlled: true,
+                x: utils.withGrid(14),
+                y: utils.withGrid(3),
+                direction: "left"
+            }),
+        },
+        walls: {
+            // Row 2
+            [utils.asGridCoord(6, 2)] : true,
+            [utils.asGridCoord(12, 2)] : true,
+            [utils.asGridCoord(14, 2)] : true,
+            [utils.asGridCoord(15, 2)] : true,
+
+            // Row 3
+            [utils.asGridCoord(1, 3)] : true,
+            [utils.asGridCoord(2, 3)] : true,
+            [utils.asGridCoord(4, 3)] : true,
+            [utils.asGridCoord(5, 3)] : true,
+            [utils.asGridCoord(7, 3)] : true,
+            [utils.asGridCoord(8, 3)] : true,
+            [utils.asGridCoord(9, 3)] : true,
+            [utils.asGridCoord(10, 3)] : true,
+            [utils.asGridCoord(11, 3)] : true,
+            [utils.asGridCoord(13, 3)] : true,
+            [utils.asGridCoord(16, 3)] : true,
+            [utils.asGridCoord(17, 3)] : true,
+            [utils.asGridCoord(18, 3)] : true,
+
+            // Row 4
+            [utils.asGridCoord(0, 4)] : true,
+            [utils.asGridCoord(3, 4)] : true,
+            [utils.asGridCoord(16, 4)] : true,
+            [utils.asGridCoord(19, 4)] : true,
+
+            // Row 5
+            [utils.asGridCoord(0, 5)] : true,
+            [utils.asGridCoord(3, 5)] : true,
+            [utils.asGridCoord(19, 5)] : true,
+
+            // Row 6
+            [utils.asGridCoord(0, 6)] : true,
+            [utils.asGridCoord(1, 6)] : true,
+            [utils.asGridCoord(3, 6)] : true,
+            [utils.asGridCoord(5, 6)] : true,
+            [utils.asGridCoord(13, 6)] : true,
+            [utils.asGridCoord(14, 6)] : true,
+            [utils.asGridCoord(19, 6)] : true,
+
+            // Row 7
+            [utils.asGridCoord(-1, 7)] : true,
+            [utils.asGridCoord(17, 7)] : true,
+            [utils.asGridCoord(18, 7)] : true,
+
+            // Row 8
+            [utils.asGridCoord(0, 8)] : true,
+            [utils.asGridCoord(1, 8)] : true,
+            [utils.asGridCoord(2, 8)] : true,
+            [utils.asGridCoord(3, 8)] : true,
+            [utils.asGridCoord(4, 8)] : true,
+            [utils.asGridCoord(5, 8)] : true,
+            [utils.asGridCoord(6, 8)] : true,
+            [utils.asGridCoord(7, 8)] : true,
+            [utils.asGridCoord(8, 8)] : true,
+            [utils.asGridCoord(9, 8)] : true,
+            [utils.asGridCoord(10, 8)] : true,
+            [utils.asGridCoord(11, 8)] : true,
+            [utils.asGridCoord(12, 8)] : true,
+            [utils.asGridCoord(13, 8)] : true,
+            [utils.asGridCoord(14, 8)] : true,
+            [utils.asGridCoord(15, 8)] : true,
+            [utils.asGridCoord(16, 8)] : true,
+        },
+        cutsceneSpaces: {
+            [utils.asGridCoord(15, 3)]: [
+                {
+                    events: [
+                        {type: "changeMap", map: "Farmhouse"}
+                    ]
+                }
             ]
         }
     }
+
 }
