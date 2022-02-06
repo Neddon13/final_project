@@ -79,7 +79,8 @@ loadSprite('top-wall', 'PatuSh9.png') //S
 
 loadSprite('goblin', 'fQjAh0x.png')
 loadSprite('skeletor', 'Ei1VnX8.png')
-loadSprite('kaboom', 'o9WizfI.png')
+loadSprite('bullet', 'vYBHauP.png')
+
 
 
 scene('game', ({ level, score }) => {
@@ -236,12 +237,12 @@ scene('game', ({ level, score }) => {
 
   //
   const scoreLabel = add([
-    text(' score: 0'),
+    text(' score: '),
     pos(238, 100),
     layer('ui'),
-    // {
-    //   value: score,
-    // },
+    {
+      value: score,
+    },
     scale(1.5),
   ])
 
@@ -315,24 +316,24 @@ scene('game', ({ level, score }) => {
 
 
   //
-  function spawnKaboom(p) {
-    const obj = add([sprite('kaboom'), pos(p), 'kaboom'])
-    wait(1, () => {
+  function fire(p) {
+    const obj = add([sprite('bullet'), pos(p), 'bullet'])
+    wait(0.2, () => {
       destroy(obj)
     })
   }
  
   keyPress('space', () => {
-    spawnKaboom(player.pos.add(player.dir.scale(10)))
+    fire(player.pos.add(player.dir.scale(22)))
   })
   //
 
 
   //
-  collides('kaboom', 'skeletor', (k,s) => {
+  collides('bullet', 'skeletor', (bullet,s) => {
     camShake(40)
     wait(0.5, () => {
-      destroy(k)
+      destroy(bullet)
     })
     destroy(s)
     scoreLabel.value++
@@ -342,7 +343,7 @@ scene('game', ({ level, score }) => {
 
 
   //
-  collides('kaboom', 'goblin', (g,s) => {
+  collides('bullet', 'goblin', (g,s) => {
     camShake(4)
     wait(1, () => {
       destroy(g)
