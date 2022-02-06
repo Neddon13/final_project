@@ -104,7 +104,8 @@ class OverworldMap {
 }
 
 window.OverworldMaps = {
-    Demo: {
+    Outside: {
+        id: "Outside",
         lowerSrc: "/images/maptileset/samplemap/samplemap.png",
         upperSrc: "/images/maptileset/samplemap/samplemapupper.png",
         gameObjects: {
@@ -112,6 +113,7 @@ window.OverworldMaps = {
                 isPlayerControlled: true,
                 x: utils.withGrid(8),
                 y: utils.withGrid(15),
+                direction: "down"
             }),
             doggo: new Person({
                 x: utils.withGrid(9),
@@ -641,6 +643,7 @@ window.OverworldMaps = {
             [utils.asGridCoord(54, 20)] : true,
         },
         cutsceneSpaces: {
+            // Grave cutscene
             [utils.asGridCoord(24, 5)]: [
                 {
                     events: [
@@ -659,24 +662,27 @@ window.OverworldMaps = {
                     ]
                 }
             ],
+            // Go inside Farmhouse
             [utils.asGridCoord(13, 9)]: [
                 {
                     events: [
-                        {type: "changeMap", map: "Farmhouse"}
+                        {type: "changeMap", 
+                        map: "Farmhouse_Entrance", 
+                        x: utils.withGrid(16), 
+                        y: utils.withGrid(9), 
+                        direction: "up"}
                     ]
                 }
             ]
         }
     },
-    Farmhouse: {
+    Farmhouse_Entrance: {
+        id: "Farmhouse_Entrance",
         lowerSrc: "/images/maptileset/farmhouse_main.png",
         upperSrc: "/images/maptileset/farmhouse_main_upper.png",
         gameObjects: {
             hero: new Person({
                 isPlayerControlled: true,
-                x: utils.withGrid(16),
-                y: utils.withGrid(9),
-                direction: "up"
             }),
         },
         walls: {
@@ -752,32 +758,46 @@ window.OverworldMaps = {
             [utils.asGridCoord(16, 10)] : true,
         },
         cutsceneSpaces: {
+            // Go outside
             [utils.asGridCoord(16, 9)]: [
                 {
-                    events: [
-                        {type: "changeMap", map: "Demo"}
+                    events: 
+                    [
+                    {
+                        type: "changeMap",
+                        map: "Outside",
+                        x: utils.withGrid(13),
+                        y: utils.withGrid(9),
+                        direction: "down"
+                    }
                     ]
                 }
             ],
+            // Go to basement
             [utils.asGridCoord(10, 3)]: [
                 {
-                    events: [
-                        {type: "changeMap", map: "FarmhouseBasement"}
+                    events: 
+                    [
+                    {
+                        type: "changeMap", 
+                        map: "Farmhouse_Basement",
+                        x: utils.withGrid(15),
+                        y: utils.withGrid(3),
+                        direction: "left"
+                    }
                     ]
                 }
             ]
 
         }
     },
-    FarmhouseBasement: {
+    Farmhouse_Basement: {
+        id: "Farmhouse_Basement",
         lowerSrc: "/images/maptileset/farmhouse_basement_lower.png",
         upperSrc: "/images/maptileset/farmhouse_basement_upper.png",
         gameObjects: {
             hero: new Person({
                 isPlayerControlled: true,
-                x: utils.withGrid(14),
-                y: utils.withGrid(3),
-                direction: "left"
             }),
         },
         walls: {
@@ -847,10 +867,17 @@ window.OverworldMaps = {
             [utils.asGridCoord(16, 8)] : true,
         },
         cutsceneSpaces: {
+            // Go upstairs
             [utils.asGridCoord(15, 3)]: [
                 {
                     events: [
-                        {type: "changeMap", map: "Farmhouse"}
+                        {
+                            type: "changeMap", 
+                            map: "Farmhouse_Entrance",
+                            x: utils.withGrid(10),
+                            y: utils.withGrid(3),
+                            direction: "right"    
+                        }
                     ]
                 }
             ]

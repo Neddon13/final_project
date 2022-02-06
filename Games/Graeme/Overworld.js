@@ -63,14 +63,39 @@ class Overworld {
         })
     }
 
-    startMap(mapConfig) {
+    startMap(mapConfig, heroInitialState=null) {
         this.map = new OverworldMap(mapConfig);
         this.map.overworld = this;
         this.map.mountObjects();
+
+        if (heroInitialState) {
+            this.map.gameObjects.hero.x = heroInitialState.x;
+            this.map.gameObjects.hero.y = heroInitialState.y;
+            this.map.gameObjects.hero.direction = heroInitialState.direction;
+        }
+
+        this.progress.mapId = mapConfig.id;
+        this.progress.startingHeroX = this.map.gameObjects.hero.x;
+        this.progress.startingHeroY = this.map.gameObjects.hero.y;
+        this.progress.startingHeroDirection = this.map.gameObjects.hero.direction;
     }
 
     init() {
-        this.startMap(window.OverworldMaps.Demo);
+
+        this.progress = new Progress();
+
+        let initialHeroState = null;
+        const saveFile = this.progress.getSave();
+        if (saveFile) {
+            this.progress.load();
+            initialHeroState = {
+                x: this.progress.startingHeroX,
+                y: this.progress.startingHeroY,
+                direction: this.progress.startingHeroDirection,
+            }
+        }
+
+        this.startMap(window.OverworldMaps[this.progress.mapId], initialHeroState);
 
         this.bindActionInput();
         this.bindHeroPosition();
@@ -80,12 +105,11 @@ class Overworld {
         this.startGameLoop();
 
         this.map.startCutscene([
-            // { type: "changeMap", map: "Farmhouse"}
-            // { type: "textMessage", text: "Welcome to CodecLAND, feel free to explore and talk to people!" },
-            // { who: "hero", type: "stand", direction: "left", time: 100},
-            // { who: "hero", type: "stand", direction: "up", time: 100},
-            // { who: "hero", type: "stand", direction: "right", time: 100},
-            // { who: "hero", type: "stand", direction: "down", time: 100},
+            { type: "textMessage", text: "Welcome to CodecLAND, feel free to explore and talk to people!" },
+            { who: "hero", type: "stand", direction: "left", time: 100},
+            { who: "hero", type: "stand", direction: "up", time: 100},
+            { who: "hero", type: "stand", direction: "right", time: 100},
+            { who: "hero", type: "stand", direction: "down", time: 100},
         ])
     }
 }
