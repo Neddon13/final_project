@@ -144,6 +144,23 @@ scene('game', ({ level, score }) => {
 
     ],
     [
+      '---------------',
+      '-qww~ww<>ww~we-',
+      '-aC (  lo  (Cd-',
+      '-r n      *n d-',
+      '-a uCCC*CCCu d-',
+      '-a u*      u d-',
+      '-a j       j d-',
+      '-a n       n d-',
+      '-a u       u d-',
+      '-a uCZ   ZCu d-',
+      '-a j       j d-',
+      '-aC         Cd-',
+      '-zxAxxxxxxAxxc-',
+      '---------------'
+
+    ],
+    [
       '--------------',
       '-qw~wwwwww~we-',
       '-aC(  WW  (Cd-',
@@ -433,12 +450,12 @@ scene('game', ({ level, score }) => {
 
 //
 scene('lose', ({ score }) => {
-  add([text(' You lose try again! Score: ' + parseInt(score)), origin('center'), pos(width() / 2, height() / 2)])
+  add([text(' You lose try again! Score: ' + parseInt(score)), origin('center'), pos(200, 125), scale(0.8)])
 
 })
 
 scene('win', ({ score }) => {
-  add([text(' Congrats you completed the game! With a final Score: ' + parseInt(score)), origin('center'), pos(width() / 2, height() / 2)])
+  add([text(' Congrats you completed the game! With a final Score: ' + parseInt(score)), pos(200, 125), scale(0.8)])
 
 })
 
