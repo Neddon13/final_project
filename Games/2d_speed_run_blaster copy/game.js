@@ -13,7 +13,7 @@ refreshButton.addEventListener('click', refreshPage)
 
 kaboom({  // setup for Kaboom game library and is importated through html file
   global: true,
- 
+
   scale: 3.25,
   debug: true,
   clearColor: [0, 0, 0, 1],
@@ -102,6 +102,7 @@ loadSprite('goblin', 'fQjAh0x.png')
 loadSprite('goblin-still', 'fQjAh0x.png')
 loadSprite('skelly-still', '1K34y4u.png')
 loadSprite('skelly', '1K34y4u.png')
+loadSprite('skelly-side', '1K34y4u.png')
 loadSprite('bullet', 'vYBHauP.png')
 
 
@@ -147,12 +148,12 @@ scene('game', ({ level, score }) => {
       '---------------',
       '-qww~ww<>ww~we-',
       '-aC (  lo  (Cd-',
-      '-r n      *n d-',
+      '-r n       n d-',
       '-a uCCC*CCCu d-',
       '-a u*      u d-',
       '-a j       j d-',
-      '-a n       n d-',
-      '-a u       u d-',
+      '-a n *     n d-',
+      '-a u     * u d-',
       '-a uCZ   ZCu d-',
       '-a j       j d-',
       '-aC         Cd-',
@@ -270,6 +271,7 @@ scene('game', ({ level, score }) => {
     'G': [sprite('goblin-still'), 'goblin', { dir: 0 }, 'dangerous'],
     '}': [sprite('skelly'), 'dangerous', 'skelly', { dir: -1, timer: 0 }],
     'Z': [sprite('skelly-still'), 'dangerous', 'skelly', { dir: 0, timer: 0 }],
+    'K': [sprite('skelly-side'), 'dangerous', 'skelly', { dir: -1 }],
 
   }
 
@@ -408,6 +410,9 @@ scene('game', ({ level, score }) => {
   action('goblin', (goblin) => {
     goblin.move(goblin.dir * goblin_Speed, 0)
   })
+  action('skelly-side', (skelly) => {
+    skelly.move(skelly.dir * Skelly_Speed, 0)
+  })
 
   collides('goblin', 'wall', (goblin) => {
     goblin.dir = -goblin.dir
@@ -426,6 +431,10 @@ scene('game', ({ level, score }) => {
   })
 
   collides('skelly', 'wall', (skelly) => {
+    skelly.dir = -skelly.dir
+  })
+
+  collides('skelly-side', 'wall', (skelly) => {
     skelly.dir = -skelly.dir
   })
   //
