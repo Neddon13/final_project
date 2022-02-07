@@ -83,13 +83,17 @@ class Overworld {
         this.progress.startingHeroDirection = this.map.gameObjects.hero.direction;
     }
 
-    init() {
+    async init() {
 
         this.progress = new Progress();
 
+        this.titleScreen = new TitleScreen({
+            progress: this.progress,
+        });
+        const useSaveFile = await this.titleScreen.init(document.querySelector(".game-container"))
+
         let initialHeroState = null;
-        const saveFile = this.progress.getSave();
-        if (saveFile) {
+        if (useSaveFile) {
             this.progress.load();
             initialHeroState = {
                 x: this.progress.startingHeroX,

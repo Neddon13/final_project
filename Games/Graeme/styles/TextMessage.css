@@ -3,7 +3,7 @@
     left:0;
     right: 0;
     bottom: 0;
-    height: 50px;
+    height: auto;
     padding: 4px;
     background: var(--menu-background);
     border-top: 1px solid var(--menu-border-color);
@@ -12,7 +12,7 @@
 
 .TextMessage_p {
     margin: 0;
-    font-size: 16px;
+    font-size: 1.5rem;
 }
 
 .TextMessage span {
@@ -25,7 +25,7 @@
 
 .TextMessage_button {
     margin: 0;
-    font-size: 12px;
+    font-size: 1rem;
     padding: 0;
     -webkit-appearance: none;
     background: none;

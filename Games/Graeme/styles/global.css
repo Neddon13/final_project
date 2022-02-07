@@ -13,18 +13,19 @@
 }
 
 body {
-    background: grey;
     padding: 0;
     margin: 0;
     overflow: hidden;
+    font-family: 'Rowdies', cursive;
 }
 
 .game-container {
+    background: grey;
     position: relative;
     width: 706px;
     height: 418px;
     margin: 0 auto;
-    border: 1px solid white;
+    border: 2px groove black;
 
     transform: scale(1.5) translateY(20%);
 }
