@@ -2,13 +2,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const bird = document.querySelector('.bird')
     const gameDisplay = document.querySelector('.game-container')
     const ground = document.querySelector('.ground')
+    const message = document.querySelector('.message')
 
 
     let birdLeft = 220
-    let birdBottom = 100
+    let birdBottom = 180
     let gravity = 3
     let isGameOver = false
     let gap = 430
+    let gameState = 'Start'
 
 
     function startGame(){
@@ -66,10 +68,10 @@ document.addEventListener('DOMContentLoaded', () => {
             clearInterval(timerId)
         }
 
-        if(birdBottom < obstacleBottom){
-            gameOver()
-            clearInterval(timerId)
-        }
+        // if(birdBottom < obstacleBottom){
+        //     gameOver()
+        //     clearInterval(timerId)
+        // }
     
  
     }

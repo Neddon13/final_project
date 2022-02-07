@@ -27,7 +27,7 @@
 }
 
 .border-top{
-    width: 660px;
+    width: 730px;
     height: 50px;
     position: absolute;
     background-color: white;
@@ -45,7 +45,7 @@
 .ground{
     background-color: green;
     width: 500px;
-    height: 180px;
+    height: 150px;
     position: absolute;
     top: 580px; 
     z-index: +1;
