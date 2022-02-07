@@ -75,7 +75,6 @@ class OverworldMap {
                     return playerState.storyFlags[sf]
                 })
             })
-            console.log(relevantScenario)
             relevantScenario && this.startCutscene(relevantScenario.events)
         }
     }

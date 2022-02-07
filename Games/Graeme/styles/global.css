@@ -20,12 +20,11 @@ body {
 }
 
 .game-container {
-    background: grey;
+    background: black;
     position: relative;
-    width: 706px;
-    height: 418px;
+    width: 702px;
+    height: 412px;
     margin: 0 auto;
-    border: 2px groove black;
 
     transform: scale(1.5) translateY(20%);
 }
