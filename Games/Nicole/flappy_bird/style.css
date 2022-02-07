@@ -4,22 +4,22 @@
 
 .game-container{
     width: 500px;
-    height: 630px;
+    height: 730px;
     position: absolute;
     left: 80px;
 }
 
 .border-left {
-    width: 70px;
-    height: 690px;
+    width: 72px;
+    height: 790px;
     position: absolute;
     background-color: white;
     z-index: +1;
 }
 
 .border-right{
-    width: 90px;
-    height: 690px;
+    width: 80px;
+    height: 790px;
     position: absolute;
     background-color: white;
     z-index: +2;
@@ -27,7 +27,7 @@
 }
 
 .border-top{
-    width: 600px;
+    width: 660px;
     height: 50px;
     position: absolute;
     background-color: white;
@@ -38,7 +38,7 @@
 .sky{
     background-image: url(/images/Flappybird.png);
     width: 500px;
-    height: 500px;
+    height: 580px;
     position: absolute;
 }
 
@@ -47,7 +47,7 @@
     width: 500px;
     height: 180px;
     position: absolute;
-    top: 500px; 
+    top: 580px; 
     z-index: +1;
 }
 
@@ -56,6 +56,8 @@
     position: absolute;
     width: 60px;
     height: 45px;
+    left: 220px;
+    bottom: 100px;
 }
 
 .obstacle{
@@ -72,3 +74,4 @@
     height: 300px;
     position: absolute;
 }
+
