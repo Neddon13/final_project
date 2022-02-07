@@ -1,9 +1,18 @@
+const refreshButton = document.querySelector('.refresh-button');
+
+const refreshPage = () => {
+  location.reload();
+}
+
+refreshButton.addEventListener('click', refreshPage)
+
+
 kaboom({  // setup for Kaboom game library and is importated through html file
   global: true,
-  fullscreen: true,
-  scale: 4,
+  fullscreen: false,
+  scale: 3.25,
   debug: true,
-  clearColor: [0, 0, 1, 1],
+  clearColor: [0, 0, 0, 1],
 })
 
 // // player, enemey and boss speed 
@@ -21,67 +30,69 @@ loadSprite('player-up', '/nXDqcLj.png')
 loadSprite('player-facing', 'XZJWPP1.png')
 
 loadSprite('top-wall', 'PatuSh9.png') //S
-  loadSprite('bottom-wall', 'GGgrnFh.png')  // S
-  loadSprite('right-wall', '17t8kMm.png') //S
-  loadSprite('left-wall', 'eletAMJ.png') // S
-  loadSprite('top-right-corner', 'TOOO8Ma.png') //S
-  loadSprite('top-left-corner', 'b2P8Uam.png')  //S
-  loadSprite('bottom-right-corner', 'xzIPIsh.png') //S
-  loadSprite('bottom-left-corner', 'JDrxVjq.png') //S
+loadSprite('bottom-wall', 'GGgrnFh.png')  // S
+loadSprite('right-wall', '17t8kMm.png') //S
+loadSprite('left-wall', 'eletAMJ.png') // S
+loadSprite('top-right-corner', 'TOOO8Ma.png') //S
+loadSprite('top-left-corner', 'b2P8Uam.png')  //S
+loadSprite('bottom-right-corner', 'xzIPIsh.png') //S
+loadSprite('bottom-left-corner', 'JDrxVjq.png') //S
 
-  loadSprite('top-wall-yellow', 'ki9l070.png') //S
-  loadSprite('top-wall-blue', '8OYDR99.png')  //S
-  loadSprite('top-wall-red', 'zBzVAIh.png') //S
-  loadSprite('top-wall-green', 'aNxOpPj.png') //S
-  
-  loadSprite('bottom-wall-yellow', 'VOpa7oN.png') //S
-  loadSprite('bottom-wall-red', '/YEK335k.png')  //S
-  loadSprite('bottom-wall-green', '/INb8Jju.png') //S
+loadSprite('top-wall-yellow', 'ki9l070.png') //S
+loadSprite('top-wall-blue', '8OYDR99.png')  //S
+loadSprite('top-wall-red', 'zBzVAIh.png') //S
+loadSprite('top-wall-green', 'aNxOpPj.png') //S
+
+loadSprite('bottom-wall-yellow', 'VOpa7oN.png') //S
+loadSprite('bottom-wall-red', '/YEK335k.png')  //S
+loadSprite('bottom-wall-green', '/INb8Jju.png') //S
 //   loadSprite('bottom-wall-blue', '') //S
 
-  loadSprite('top-left-door', 'uypslqm.png') //S
-  loadSprite('top-right-door', 'w1xJH1S.png')  //S
+loadSprite('top-left-door', 'uypslqm.png') //S
+loadSprite('top-right-door', 'w1xJH1S.png')  //S
 
-  loadSprite('left-wall-Y-flag', 'rYfz2wm.png') //S
-  loadSprite('left-wall-G-flag', 'm5ufziB.png') //S
-  loadSprite('left-wall-R-flag', 'eHx4ppW.png') //S
-  loadSprite('left-wall-B-flag', 'SIhBYWy.png') //S
+loadSprite('left-wall-Y-flag', 'rYfz2wm.png') //S
+loadSprite('left-wall-G-flag', 'm5ufziB.png') //S
+loadSprite('left-wall-R-flag', 'eHx4ppW.png') //S
+loadSprite('left-wall-B-flag', 'SIhBYWy.png') //S
 
-  loadSprite('right-wall-Y-flag','blvTV9B.png') //S
-  loadSprite('right-wall-R-flag', '0M3KY1J.png')    //S
-  loadSprite('right-wall-G-flag', '88Hky91.png')    //S
-  loadSprite('right-wall-B-flag', 'tcdwQOu.png')    //S
+loadSprite('right-wall-Y-flag', 'blvTV9B.png') //S
+loadSprite('right-wall-R-flag', '0M3KY1J.png')    //S
+loadSprite('right-wall-G-flag', '88Hky91.png')    //S
+loadSprite('right-wall-B-flag', 'tcdwQOu.png')    //S
 
-  loadSprite('pillar-top', 'TEYuPFZ.png')   //S
-  loadSprite('pillar-base', 'ih1tmYd.png')  //S
-  loadSprite('pillar-body', 'PKYGY5T.png')  //S
+loadSprite('pillar-top', 'TEYuPFZ.png')   //S
+loadSprite('pillar-base', 'ih1tmYd.png')  //S
+loadSprite('pillar-body', 'PKYGY5T.png')  //S
 
-  loadSprite('stairs-right', '77BWeTa.png') //NS
+loadSprite('stairs-right', '77BWeTa.png') //NS
 
-  loadSprite('bottom-right-next-level-door', 'tWsoh5t.png') //NS
-  loadSprite('bottom-left-next-level-door', 'nrN8NHD.png')  //NS
+loadSprite('bottom-right-next-level-door', 'tWsoh5t.png') //NS
+loadSprite('bottom-left-next-level-door', 'nrN8NHD.png')  //NS
 
-  loadSprite('ladders-up-or-down-right-side', 'yrcUwIk.png') //NS
+loadSprite('ladders-up-or-down-right-side', 'yrcUwIk.png') //NS
 
-  loadSprite('ladders-up', 'QFTJuE9.png') // NS
-  loadSprite('ladders-up-exit-hole', 'KR0DMJJ.png') //S
+loadSprite('ladders-up', 'QFTJuE9.png') // NS
+loadSprite('ladders-up-exit-hole', 'KR0DMJJ.png') //S
 
-  loadSprite('gunge-flow-top', 'Od2ZfHj.png') //S
-  loadSprite('gunge-flow-bottom', 'VKaIwiT.png')// NS
-  loadSprite('water-flow-top', 'yp2IeuT.png') //S
-  loadSprite('water-flow-bottom', 'E4I8hh3.png') //NS
-  loadSprite('lava-flow-top', '5TW0ktX.png') //S
-  loadSprite('lava-flow-bottom', '3DXREXE.png') //NS
+loadSprite('gunge-flow-top', 'Od2ZfHj.png') //S
+loadSprite('gunge-flow-bottom', 'VKaIwiT.png')// NS
+loadSprite('water-flow-top', 'yp2IeuT.png') //S
+loadSprite('water-flow-bottom', 'E4I8hh3.png') //NS
+loadSprite('lava-flow-top', '5TW0ktX.png') //S
+loadSprite('lava-flow-bottom', '3DXREXE.png') //NS
 
-  loadSprite('coin', 'w9iby1M.png') //NS
-  loadSprite('chest', 'nIDAjja.png') //NS
+loadSprite('coin', 'w9iby1M.png') //NS
+loadSprite('chest', 'nIDAjja.png') //NS
 
 
-  
 
-  loadSprite('shadow', 'DhrVZ0n.png') //S
 
-  loadSprite('bg', 'TwsHMKh.png') //NS
+
+
+loadSprite('shadow', 'DhrVZ0n.png') //S
+
+loadSprite('bg', 'TwsHMKh.png') //NS
 
 loadSprite('goblin', 'fQjAh0x.png')
 loadSprite('goblin-still', 'fQjAh0x.png')
@@ -96,25 +107,25 @@ scene('game', ({ level, score }) => {
 
   const maps = [
     [
-        '--------------',
-        '-qw~ww<>ww~we-',
-        '-aC(  lo  (Cd-',
-        '-r n     Gn d-',
-        '-a uC  G Cu d-',
-        '-a u      u d-',
-        '-a j G    j d-',
-        '-a n    G n d-',
-        '-a u      u d-',
-        '-a uC    Cu d-',
-        '-a j      j d-',
-        '-a          d-',
-        '-zxAxxxxxxAxc-',
-        '--------------'
+      '--------------',
+      '-qw~w$<>^w~we-',
+      '-aC( )lo_ (Cd-',
+      '-r n     Gn d-',
+      '-a uC  G Cu d-',
+      '-a u      u d-',
+      '-a j G    j d-',
+      '-a n    G n d-',
+      '-a u      u d-',
+      '-a uC    Cu d-',
+      '-a j      j d-',
+      '-a          d-',
+      '-zxAxxxxxxAxc-',
+      '--------------'
     ],
     [
-      '--------------',
+      '---------------',
       '-qww~ww<>ww~we-',
-      '-aC(  lo   (Cd-',
+      '-aC (  lo  (Cd-',
       '-r n      *n d-',
       '-a uC  *  Cu d-',
       '-a u*      u d-',
@@ -125,24 +136,24 @@ scene('game', ({ level, score }) => {
       '-a j       j d-',
       '-aC         Cd-',
       '-zxAxxxxxxAxxc-',
-      '--------------'
-   
+      '---------------'
+
     ],
     [
-        '--------------',
-        '-qw~wwwwww~we-',
-        '-aC(  WW  (Cd-',
-        '-r n   *  n d-',
-        '-a uC }} Cu d-',
-        '-a u  *   u d-',
-        '-a j  }}  j d-',
-        '-a n      n d-',
-        '-a u  }}  u d-',
-        '-a uC    Cu d-',
-        '-a j      j d-',
-        '-aC        Cd-',
-        '-zxAxxxxxxAxc-',
-        '--------------'
+      '--------------',
+      '-qw~wwwwww~we-',
+      '-aC(  WW  (Cd-',
+      '-r n   *  n d-',
+      '-a uC }} Cu d-',
+      '-a u  *   u d-',
+      '-a j  }}  j d-',
+      '-a n      n d-',
+      '-a u  }}  u d-',
+      '-a uC    Cu d-',
+      '-a j      j d-',
+      '-aC        Cd-',
+      '-zxAxxxxxxAxc-',
+      '--------------'
 
     ]
 
@@ -198,7 +209,7 @@ scene('game', ({ level, score }) => {
     // pillar 
     'n': [sprite('pillar-top'), solid(), 'wall'],
     'u': [sprite('pillar-body'), solid(), 'wall'],
-    'j': [sprite('pillar-base'),'wall'],
+    'j': [sprite('pillar-base'), 'wall'],
     //
 
 
@@ -225,11 +236,11 @@ scene('game', ({ level, score }) => {
     '~': [sprite('gunge-flow-top'), solid(), 'wall'],
     '$': [sprite('water-flow-top'), solid(), 'wall'],
     '^': [sprite('lava-flow-top'), solid(), 'wall'],
-    '(': [sprite('gunge-flow-bottom'), 'cool' ],
+    '(': [sprite('gunge-flow-bottom'), 'cool'],
     ')': [sprite('water-flow-bottom'), 'cool'],
     '_': [sprite('lava-flow-bottom'), 'cool'],
     'C': [sprite('coin'), 'point'],
-    'W': [sprite('chest'), 'win', solid() , 'wall'],
+    'W': [sprite('chest'), 'win', solid(), 'wall'],
     //
 
     // enemies
@@ -238,7 +249,7 @@ scene('game', ({ level, score }) => {
     'G': [sprite('goblin-still'), 'goblin', { dir: 0 }, 'dangerous'],
     '}': [sprite('skelly'), 'dangerous', 'skelly', { dir: -1, timer: 0 }],
     'Z': [sprite('skelly-still'), 'dangerous', 'skelly', { dir: 0, timer: 0 }],
-   
+
   }
 
   //
@@ -277,10 +288,10 @@ scene('game', ({ level, score }) => {
   // makes effects of solid and non solid work with correct outcomes for next-level
   player.action(() => {
     player.resolve()
-  }) 
+  })
   //
 
- 
+
   //
   player.overlaps('next-level', () => {
     go('game', {
@@ -335,7 +346,7 @@ scene('game', ({ level, score }) => {
       destroy(obj)
     })
   }
- 
+
   keyPress('space', () => {
     fire(player.pos.add(player.dir.scale(22)))
   })
@@ -410,7 +421,7 @@ scene('game', ({ level, score }) => {
   })
 
 
-}) 
+})
 // game logic finsihed 
 
 
@@ -418,15 +429,15 @@ scene('game', ({ level, score }) => {
 
 //
 scene('lose', ({ score }) => {
-  add([text(' You lose try again! Score: ' + parseInt (score)), origin('center'), pos(width() / 2, height() / 2)])
+  add([text(' You lose try again! Score: ' + parseInt(score)), origin('center'), pos(width() / 2, height() / 2)])
 
 })
 
 scene('win', ({ score }) => {
-  add([text(' Congrats you completed the game! Your final Score: ' + parseInt (score)), origin('center'), pos(width() / 2, height() / 2)])
+  add([text(' Congrats you completed the game! Your final Score: ' + parseInt(score)), origin('center'), pos(width() / 2, height() / 2)])
 
 })
 
-// start('game', { level: 0, score: 0 })
-
 start('game', { level: 0, score: 0 })
+
+
