@@ -1,0 +1,53 @@
+#main-header{
+    background-color: grey;
+}
+
+#reel-container{
+    border: solid 3px white;
+    width: 98vw;
+    margin: 0 auto;
+    height: 400px;
+    background-color: #A9A9A9; 
+}
+
+#slides{
+    border: solid 4px gray;
+    margin: 1vw auto;
+    height: 190px;
+    width: 96vw;
+}
+
+#icons{
+    display: flex;
+    padding: 20px;
+    justify-content: space-evenly;
+}
+
+#game-icon1{
+    width: 100px;
+    height: 100px;
+    background-image: url('./images/flappybirdicon.jpeg');
+    border-radius: 50%
+}
+
+#game-icon2{
+    width: 100px;
+    height: 100px;
+    background: white;
+    border-radius: 50%
+}
+
+#game-icon3{
+    width: 100px;
+    height: 100px;
+    background: white;
+    border-radius: 50%
+}
+
+#game-icon4{
+    width: 100px;
+    height: 100px;
+    background: white;
+    border-radius: 50%
+}
+
