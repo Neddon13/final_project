@@ -12,9 +12,12 @@ refreshButton.addEventListener('click', refreshPage)
 
 
 kaboom({  // setup for Kaboom game library and is importated through html file
+  root: document.querySelector(".game-container"),
+  width:1080,
+  height: 720,
   global: true,
-
-  scale: 3.25,
+  fullscreen: false,
+  scale: 3,
   debug: true,
   clearColor: [0, 0, 0, 1],
 })
@@ -131,10 +134,10 @@ scene('game', ({ level, score }) => {
       '---------------',
       '-qww~ww<>ww~we-',
       '-aC (  lo  (Cd-',
-      '-r n      *n d-',
+      '-r n       n d-',
       '-a uCCC*CCCu d-',
       '-a u*      u d-',
-      '-a j       j d-',
+      '-a j   *   j d-',
       '-a n   Z   n d-',
       '-a u  Z Z  u d-',
       '-a uCZ   ZCu d-',
@@ -165,12 +168,12 @@ scene('game', ({ level, score }) => {
       '--------------',
       '-qw~wwwwww~we-',
       '-aC(  WW  (Cd-',
-      '-r n CC * n d-',
-      '-a uC }} Cu d-',
-      '-a u  *   u d-',
+      '-rGn CC   nGd-',
+      '-a uC }}*Cu d-',
+      '-a u*     u d-',
       '-aCj  }}CCj d-',
       '-a n      n d-',
-      '-aCu  }}  u d-',
+      '-aGu  }}  uGd-',
       '-a u      u d-',
       '-a j      j d-',
       '-aC        Cd-',
@@ -283,7 +286,7 @@ scene('game', ({ level, score }) => {
 
   //
   const scoreLabel = add([
-    text(' score: 0'),
+    text(` score: ${score}`),
     pos(238, 100),
     layer('ui'),
     {
@@ -464,7 +467,7 @@ scene('lose', ({ score }) => {
 })
 
 scene('win', ({ score }) => {
-  add([text(' Congrats you completed the game! With a final Score: ' + parseInt(score)), pos(200, 125), scale(0.8)])
+  add([text(' Congrats you completed the game! With a final Score: ' + parseInt(score)), origin('center') ,pos(200, 125), scale(0.8)])
 
 })
 
