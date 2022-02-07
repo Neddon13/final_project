@@ -1,48 +1,11 @@
 <html lang="en">
-
+  <link rel="stylesheet" href="style.css">
 <head>
   <meta charset="utf-8">
   <title>Susie's Adventure</title>
-  <style>
-    /* just to get rid of the white border and scrolling */
-    body {
-      background-color: grey;
-
-    }
-
-    .text {
-      color: white;
- 
-    }
-
-    canvas {
-      flex-wrap: wrap;
-      display: flex;
-    }
-
-    .refresh-button {
-      background-color: transparent;
-      background-repeat: no-repeat;
-      border: none;
-      cursor: pointer;
-      overflow: hidden;
-      outline: none;
-      position: absolute;
-    }
-
-    .game-container{
-      height: 720px;
-      width: 1080px;
-      border: 3px solid white;
-      overflow: hidden;
-      
-    }
-  </style>
 </head>
-
-
 <body>
- <div class="game-container">
+  <div class="game-container">
     <button class="refresh-button">▶️</button>
     <script src="https://kaboomjs.com/lib/0.5.0/kaboom.js"></script>
     <script src="game.js"></script>
