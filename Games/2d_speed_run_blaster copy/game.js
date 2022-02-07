@@ -1,3 +1,5 @@
+
+//
 const refreshButton = document.querySelector('.refresh-button');
 
 const refreshPage = () => {
@@ -5,11 +7,13 @@ const refreshPage = () => {
 }
 
 refreshButton.addEventListener('click', refreshPage)
+//
+
 
 
 kaboom({  // setup for Kaboom game library and is importated through html file
   global: true,
-  fullscreen: false,
+ 
   scale: 3.25,
   debug: true,
   clearColor: [0, 0, 0, 1],
@@ -127,7 +131,7 @@ scene('game', ({ level, score }) => {
       '-qww~ww<>ww~we-',
       '-aC (  lo  (Cd-',
       '-r n      *n d-',
-      '-a uC  *  Cu d-',
+      '-a uCCC*CCCu d-',
       '-a u*      u d-',
       '-a j       j d-',
       '-a n   Z   n d-',
@@ -143,13 +147,13 @@ scene('game', ({ level, score }) => {
       '--------------',
       '-qw~wwwwww~we-',
       '-aC(  WW  (Cd-',
-      '-r n   *  n d-',
+      '-r n CC * n d-',
       '-a uC }} Cu d-',
       '-a u  *   u d-',
-      '-a j  }}  j d-',
+      '-aCj  }}CCj d-',
       '-a n      n d-',
-      '-a u  }}  u d-',
-      '-a uC    Cu d-',
+      '-aCu  }}  u d-',
+      '-a u      u d-',
       '-a j      j d-',
       '-aC        Cd-',
       '-zxAxxxxxxAxc-',
@@ -434,7 +438,7 @@ scene('lose', ({ score }) => {
 })
 
 scene('win', ({ score }) => {
-  add([text(' Congrats you completed the game! Your final Score: ' + parseInt(score)), origin('center'), pos(width() / 2, height() / 2)])
+  add([text(' Congrats you completed the game! With a final Score: ' + parseInt(score)), origin('center'), pos(width() / 2, height() / 2)])
 
 })
 

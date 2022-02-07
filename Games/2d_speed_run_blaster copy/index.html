@@ -2,21 +2,30 @@
   <head>
     <meta charset="utf-8">
     <title>Susie's Adventure</title>
+    <h1 class="text">Welcome!</h1>
+    <p class="text"> This game was built by Louis Fletcher, enjoy!</p>
+    <button class="refresh-button">▶️</button>
     <style>
       /* just to get rid of the white border and scrolling */
       body {
-        margin: 0;
-        overflow: hidden;
-        justify-content: center;
+      background-color: black;
+    
+      }
+      .text{
+        color: white;
+      }
+      canvas {
+    flex-wrap: wrap;
+    display: flex;
       }
     </style>
   </head>
 
   
   <body>
-    <p>Hi</p>
-    <button class="refresh-button">Play/Restart</button>
     <script src="https://kaboomjs.com/lib/0.5.0/kaboom.js"></script>
     <script src="game.js"></script>
+   
   </body>
   </html>
+  
