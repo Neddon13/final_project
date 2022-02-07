@@ -4,6 +4,7 @@ class Progress {
         this.startingHeroX = 0;
         this.startingHeroY = 0;
         this.startingHeroDirection = "down";
+        this.isFirstLoad = true;
         this.saveFileKey = "FinalProjectGame_SaveFile";
     }
 
@@ -13,6 +14,7 @@ class Progress {
             startingHeroX: this.startingHeroX,
             startingHeroY: this.startingHeroY,
             startingHeroDirection: this.startingHeroDirection,
+            isFirstLoad: this.isFirstLoad,
             playerState: {
                 items: playerState.items,
                 storyFlags: playerState.storyFlags
@@ -32,6 +34,7 @@ class Progress {
             this.startingHeroX = file.startingHeroX;
             this.startingHeroY = file.startingHeroY;
             this.startingHeroDirection = file.startingHeroDirection;
+            this.isFirstLoad = file.isFirstLoad;
             Object.keys(file.playerState).forEach(key => {
                 playerState[key] = file.playerState[key];
             })

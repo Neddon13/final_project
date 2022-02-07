@@ -99,6 +99,7 @@ class Overworld {
                 x: this.progress.startingHeroX,
                 y: this.progress.startingHeroY,
                 direction: this.progress.startingHeroDirection,
+                isFirstLoad: this.progress.isFirstLoad,
             }
         }
 
@@ -111,12 +112,13 @@ class Overworld {
         this.directionInput.init();
         this.startGameLoop();
 
-        this.map.startCutscene([
+        this.progress.isFirstLoad && this.map.startCutscene([
             { type: "textMessage", text: "Welcome to CodecLAND, feel free to explore and talk to people!" },
             { who: "hero", type: "stand", direction: "left", time: 100},
             { who: "hero", type: "stand", direction: "up", time: 100},
             { who: "hero", type: "stand", direction: "right", time: 100},
             { who: "hero", type: "stand", direction: "down", time: 100},
         ])
+        this.progress.isFirstLoad = false;
     }
 }

@@ -11,7 +11,6 @@ class KeyboardMenu {
       this.options = options;
       this.element.innerHTML = this.options.map((option, index) => {
         const disabledAttr = option.disabled ? "disabled" : "";
-        console.log(disabledAttr)
         return (`
           <div class="option">
             <button ${disabledAttr} data-button="${index}" data-description="${option.description}">

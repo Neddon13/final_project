@@ -4,7 +4,7 @@ class PlayerState {
             // Swords etc in full game
         ]
         this.storyFlags = {
-            
+            // Array of flags that have been added through story progress
         }
     }
 }
