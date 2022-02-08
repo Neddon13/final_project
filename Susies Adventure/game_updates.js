@@ -1,4 +1,3 @@
-
 //
 const refreshButton = document.querySelector('.refresh-button');
 
@@ -91,11 +90,6 @@ loadSprite('lava-flow-bottom', '3DXREXE.png') //NS
 
 loadSprite('coin', 'w9iby1M.png') //NS
 loadSprite('chest', 'nIDAjja.png') //NS
-
-
-
-
-
 
 loadSprite('shadow', 'DhrVZ0n.png') //S
 
@@ -388,6 +382,15 @@ scene('game', ({ level, score }) => {
     destroy(goblin)
     scoreLabel.value++
     scoreLabel.text = scoreLabel.value
+    add([
+      text(` score: ${score}`),
+      pos(238, 100),
+      layer('ui'),
+      {
+        value: score,
+      },
+      scale(1.5),
+    ])
   })
   //
 
@@ -398,8 +401,17 @@ scene('game', ({ level, score }) => {
       destroy(bullet)
     })
     destroy(skelly)
-    scoreLabel.value + 2
+    scoreLabel.value++
     scoreLabel.text = scoreLabel.value
+    add([
+      text(` score: ${score}`),
+      pos(238, 100),
+      layer('ui'),
+      {
+        value: score,
+      },
+      scale(1.5),
+    ])
   })
   //
 
@@ -457,15 +469,7 @@ scene('game', ({ level, score }) => {
 })
 // game logic finsihed 
 
-
-
-
 //
-
-
-
-
-
 scene('lose', ({ score }) => {
   add([text(' You lose try again! Score: ' + parseInt(score)), origin('center'), pos(200, 125), scale(0.8)])
 
@@ -473,9 +477,11 @@ scene('lose', ({ score }) => {
 
 scene('win', ({ score }) => {
   add([text(' Congrats you completed the game! With a final Score: ' + parseInt(score)), origin('center'), pos(200, 125), scale(0.8)])
-
 })
+//
 
+
+//
 start('game', { level: 0, score: 0 })
-
+//
 
