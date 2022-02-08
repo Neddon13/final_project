@@ -13,7 +13,7 @@ refreshButton.addEventListener('click', refreshPage)
 
 kaboom({  // setup for Kaboom game library and is importated through html file
   root: document.querySelector(".game-container"),
-  width:1080,
+  width: 1080,
   height: 720,
   global: true,
   fullscreen: false,
@@ -461,13 +461,18 @@ scene('game', ({ level, score }) => {
 
 
 //
+
+
+
+
+
 scene('lose', ({ score }) => {
   add([text(' You lose try again! Score: ' + parseInt(score)), origin('center'), pos(200, 125), scale(0.8)])
 
 })
 
 scene('win', ({ score }) => {
-  add([text(' Congrats you completed the game! With a final Score: ' + parseInt(score)), origin('center') ,pos(200, 125), scale(0.8)])
+  add([text(' Congrats you completed the game! With a final Score: ' + parseInt(score)), origin('center'), pos(200, 125), scale(0.8)])
 
 })
 
