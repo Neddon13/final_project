@@ -1,4 +1,3 @@
-
 //
 const refreshButton = document.querySelector('.refresh-button');
 
@@ -383,15 +382,15 @@ scene('game', ({ level, score }) => {
     destroy(goblin)
     scoreLabel.value++
     scoreLabel.text = scoreLabel.value
-    // add([
-    //   text(` score: ${score}`),
-    //   pos(238, 100),
-    //   layer('ui'),
-    //   {
-    //     value: score,
-    //   },
-    //   scale(1.5),
-    // ])
+    add([
+      text(` score: ${score}`),
+      pos(238, 100),
+      layer('ui'),
+      {
+        value: score,
+      },
+      scale(1.5),
+    ])
   })
   //
 
@@ -404,15 +403,15 @@ scene('game', ({ level, score }) => {
     destroy(skelly)
     scoreLabel.value++
     scoreLabel.text = scoreLabel.value
-    // add([
-    //   text(` score: ${score}`),
-    //   pos(238, 100),
-    //   layer('ui'),
-    //   {
-    //     value: score,
-    //   },
-    //   scale(1.5),
-    // ])
+    add([
+      text(` score: ${score}`),
+      pos(238, 100),
+      layer('ui'),
+      {
+        value: score,
+      },
+      scale(1.5),
+    ])
   })
   //
 
@@ -420,15 +419,6 @@ scene('game', ({ level, score }) => {
     destroy(point)
     scoreLabel.value++
     scoreLabel.text = scoreLabel.value
-    // add([
-    //   text(` score: ${scoreLabel.value}`),
-    //   pos(238, 100),
-    //   layer('ui'),
-    //   {
-    //     value: score,
-    //   },
-    //   scale(1),
-    // ])
   })
 
   //
