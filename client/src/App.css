@@ -50,7 +50,8 @@
 #game-icon4{
     width: 100px;
     height: 100px;
-    background: white;
+    background-image: url('./images/icon4.jpeg');
+    background-position: 50%;
     border-radius: 50%
 }
 
