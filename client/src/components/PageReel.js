@@ -1,7 +1,13 @@
 const PageReel = () => {
     return(
+
         <div id="reel-container">
             <div id="slides"></div>
+
+
+
+
+            
             <div id="icons">
                 <div id="game-icon1"></div>
                 <div id="game-icon2"></div>

@@ -1,6 +1,17 @@
 #main-header{
     background-color: grey;
+    padding: 9px;
 }
+
+#top-bar{
+    padding: 12px;
+    text-align: center;
+}
+
+#nav-bar{
+    text-align: right;
+}
+
 
 #reel-container{
     border: solid 3px white;
@@ -10,8 +21,15 @@
     background-color: #A9A9A9; 
 }
 
+#page-logo{
+    display: flex;
+    justify-content: center; 
+    margin: auto 35px;
+}
+
 #slides{
     border: solid 4px gray;
+    background-color: white;
     margin: 1vw auto;
     height: 190px;
     width: 96vw;
@@ -54,4 +72,6 @@
     background-position: 50%;
     border-radius: 50%
 }
+
+
 
