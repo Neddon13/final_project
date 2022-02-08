@@ -1,16 +1,10 @@
-// import {ScriptTag} from 'react-script-tag';
+const GameContainer = () => {
 
-// const GameContainer = () => {
+    return (
+        <>
+        flappyBird
+        </>
+    )
+}
 
-//     const flappyBird = () => {
-//         <ScriptTag src="../Games/Graeme/init.js"/>
-//     }
-
-//     return (
-//         <>
-//         flappyBird
-//         </>
-//     )
-// }
-
-// export default GameContainer
+export default GameContainer

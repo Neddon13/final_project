@@ -24,23 +24,26 @@
 }
 
 #game-icon1{
-    width: 100px;
-    height: 100px;
+    width: 110px;
+    height: 110px;
     background-image: url('./images/flappybirdicon.jpeg');
+    background-position: 50%;
     border-radius: 50%
 }
 
 #game-icon2{
-    width: 100px;
-    height: 100px;
-    background: white;
+    width: 110px;
+    height: 110px;
+    background-image: url('./images/snakeicon.png');
+    background-position: 50%;
     border-radius: 50%
 }
 
 #game-icon3{
     width: 100px;
     height: 100px;
-    background: white;
+    background-image: url('./images/icon3.png');
+    background-position: 50%;
     border-radius: 50%
 }
 
