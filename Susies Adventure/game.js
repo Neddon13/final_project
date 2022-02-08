@@ -106,65 +106,11 @@ loadSprite('skelly-side', '1K34y4u.png')
 loadSprite('bullet', 'vYBHauP.png')
 // all sprites for game loaded
 
-// creating menu for start of game 
-scene("menu", () => {
 
-	add([
-		text("game"),
-		pos(240, 80),
-		scale(1.4),
-	]);
-
-	add([
-		rect(160, 20),
-		pos(240, 180),
-		"button",
-		{
-			clickAction: () => go('game'),
-		},
-	]);
-
-	add([
-		text("Play game"),
-		pos(240, 180),
-		color(0, 0, 0)
-	]);
-
-	add([
-		rect(160, 20),
-		pos(240, 210),
-		"button",
-		{
-			clickAction: () => window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ&t=2s', '_blank'),
-		},
-	]);
-
-	add([
-		text("Settings"),
-		pos(240, 210),
-		color(0, 0, 0)
-	]);
-
-	action("button", b => {
-
-		if (b.isHovered()) {
-			b.use(color(0.7, 0.7, 0.7));
-		} else {
-			b.use(color(1, 1, 1));
-		}
-
-		if (b.isClicked()) {
-			b.clickAction();
-		}
-
-	});
-
-});
-//
 
 
 // game levels 
-scene('game', ( level = 0, score = 0 ) => {
+scene('game', ({ level, score }) => {
   layers(['bg', 'obj', 'ui' ], 'obj')
 
   const maps = [
@@ -525,7 +471,7 @@ scene('game', ( level = 0, score = 0 ) => {
 // all scenes created for game outcomes and what should appear on screen when triggered
 // lose scene
 scene('lose', ({ score }) => {
-  add([text(' You lose try again! Score: ' + parseInt(score)), origin('center'), pos(200, 125), scale(0.8)])
+  add([text(' You lose try again! Score: ' + parseInt(score)), origin('center'), pos(200, 125), scale(0.4)])
 })
 
 // win scene
@@ -534,8 +480,5 @@ scene('win', ({ score }) => {
 })
 //
 
-// start('game', { level: 0, score: 0 })
+start('game', { level: 0, score: 0 })
 
-// first scene loaded when game is started 
-start("menu")
-//
