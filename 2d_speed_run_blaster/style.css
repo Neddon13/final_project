@@ -1,0 +1,32 @@
+body {
+    background-color: grey;
+
+  }
+
+  .text {
+    color: white;
+
+  }
+
+  canvas {
+    flex-wrap: wrap;
+    display: flex;
+  }
+
+  .refresh-button {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    position: absolute;
+  }
+
+  .game-container {
+    height: 720px;
+    width: 1080px;
+    border: 3px solid white;
+    overflow: hidden;
+
+  }
