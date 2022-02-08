@@ -519,22 +519,23 @@ scene('game', ( level = 0, score = 0 ) => {
 
 
 })
-// game logic finsihed 
+// game logic complete
 
-//
+
+// all scenes created for game outcomes and what should appear on screen when triggered
+// lose scene
 scene('lose', ({ score }) => {
   add([text(' You lose try again! Score: ' + parseInt(score)), origin('center'), pos(200, 125), scale(0.8)])
-
 })
 
+// win scene
 scene('win', ({ score }) => {
   add([text(' Congrats you completed the game! With a final Score: ' + parseInt(score)), origin('center'), pos(200, 125), scale(0.8)])
 })
 //
 
-
-//
 // start('game', { level: 0, score: 0 })
-//
 
+// first scene loaded when game is started 
 start("menu")
+//
