@@ -1,5 +1,5 @@
 
-// hard reload button for game using the active url in window
+// refresh button - probably remove and use kaboom for this to go back to game scene
 const refreshButton = document.querySelector('.refresh-button');
 
 const refreshPage = () => {
