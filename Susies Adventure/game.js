@@ -1,5 +1,5 @@
 
-//
+// hard reload button for game using the active url in window
 const refreshButton = document.querySelector('.refresh-button');
 
 const refreshPage = () => {
