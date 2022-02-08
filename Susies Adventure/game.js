@@ -25,15 +25,19 @@ const player_Speed = 60
 const goblin_Speed = 40
 const Skelly_Speed = 30
 
-// Game Logic
+// Game Logic and level creation
 loadRoot('https://i.imgur.com/') //loading in sprites for game characters and objects for mapping levels though imgur account
 
-
+//Player
 loadSprite('player-right', '57CVUdA.png')
 loadSprite('player-left', '/EFvXfj7.png')
 loadSprite('player-up', '/nXDqcLj.png')
 loadSprite('player-facing', 'XZJWPP1.png')
+//
 
+
+// NS = Non solid 
+// S = Solid
 loadSprite('top-wall', 'PatuSh9.png') //S
 loadSprite('bottom-wall', 'GGgrnFh.png')  // S
 loadSprite('right-wall', '17t8kMm.png') //S
@@ -100,7 +104,9 @@ loadSprite('skelly-still', '1K34y4u.png')
 loadSprite('skelly', '1K34y4u.png')
 loadSprite('skelly-side', '1K34y4u.png')
 loadSprite('bullet', 'vYBHauP.png')
+// all sprites for game loaded
 
+// creating menu for start of game 
 scene("menu", () => {
 
 	add([
@@ -154,7 +160,10 @@ scene("menu", () => {
 	});
 
 });
+//
 
+
+// game levels 
 scene('game', ( level = 0, score = 0 ) => {
   layers(['bg', 'obj', 'ui' ], 'obj')
 
@@ -229,6 +238,8 @@ scene('game', ( level = 0, score = 0 ) => {
 
   ]
 
+
+// level creator setup adding keys for sprites to be assigned to when making map 
   const levelCreator = {
     width: 16, // px size for sprites
     height: 16, // px size for sprites
@@ -315,22 +326,27 @@ scene('game', ( level = 0, score = 0 ) => {
 
     // enemies
     '-': [sprite('shadow'), solid(), 'wall'],
-    '*': [sprite('goblin'), 'goblin', { dir: -1 }, 'dangerous'],
-    'G': [sprite('goblin-still'), 'goblin', { dir: 0 }, 'dangerous'],
-    '}': [sprite('skelly'), 'dangerous', 'skelly', { dir: -1, timer: 0 }],
-    'Z': [sprite('skelly-still'), 'dangerous', 'skelly', { dir: 0, timer: 0 }],
-    'K': [sprite('skelly-side'), 'dangerous', 'skelly', { dir: -1 }],
+    '*': [sprite('goblin'), 'goblin', { dir: -1 }, 'enemy'],
+    'G': [sprite('goblin-still'), 'goblin', { dir: 0 }, 'enemy'],
+    '}': [sprite('skelly'), 'enemy', 'skelly', { dir: -1, timer: 0 }],
+    'Z': [sprite('skelly-still'), 'enemy', 'skelly', { dir: 0, timer: 0 }],
+    'K': [sprite('skelly-side'), 'enemy', 'skelly', { dir: -1 }],
 
   }
+    // all sprites assigned keys and if they should be S or NS and also properties for some sprites such as wall,'enemy, next-level
 
-  //
+
+  // uses kaboom method for add level and maps is array and level is index of the array maps, using level creator as reference for maps
   addLevel(maps[level], levelCreator)
-
   //
+
+
+  // add background image for maps
   add([sprite('bg'), layer('bg')])
+  //
 
   //
-  const scoreLabel = add([
+  let scoreLabel = add([
     text(` score: ${score}`),
     pos(238, 100),
     layer('ui'),
@@ -339,19 +355,18 @@ scene('game', ( level = 0, score = 0 ) => {
     },
     scale(1.5),
   ])
+  //
+
 
   // shows what level you are on 
   add([text('level ' + parseInt(level + 1)), pos(250, 125), scale(1.5)])
   //
 
 
-  //
+  // default spawn and what player sprite when loading game
   const player = add([
     sprite('player-up'),
     pos(114, 173),
-    {
-      dir: vec2(1, 0),
-    },
   ])
   //
 
@@ -363,7 +378,7 @@ scene('game', ( level = 0, score = 0 ) => {
   //
 
 
-  //
+  // next level is triggered when the player collids with a sprite, which has a property of 'next-level'
   player.overlaps('next-level', () => {
     go('game', {
       level: (level + 1) % maps.length,
@@ -383,25 +398,27 @@ scene('game', ( level = 0, score = 0 ) => {
   //
 
 
-  // controls for player 
+  // controls for player with arrow keys assigned to play game 
+  //Left
   keyDown('left', () => {
     player.changeSprite('player-left')
     player.move(-player_Speed, 0)
     player.dir = vec2(-1, 0)
   })
-
+  // Right
   keyDown('right', () => {
     player.changeSprite('player-right')
     player.move(player_Speed, 0)
     player.dir = vec2(1, 0)
   })
-
+  // UP
   keyDown('up', () => {
     player.changeSprite('player-up')
     player.move(0, -player_Speed)
     player.dir = vec2(0, -1)
   })
 
+  // Down
   keyDown('down', () => {
     player.changeSprite('player-facing')
     player.move(0, player_Speed)
@@ -410,21 +427,21 @@ scene('game', ( level = 0, score = 0 ) => {
   //
 
 
-  //
+  // function created to be able to fire a bullet when pressing space on keyboard and is directional based and disappears after 0.2 seconds
   function fire(bullet) {
     const obj = add([sprite('bullet'), pos(bullet), 'bullet'])
     wait(0.2, () => {
       destroy(obj)
     })
   }
-
+  // assigning key for funtion to be triggered
   keyPress('space', () => {
-    fire(player.pos.add(player.dir.scale(22)))
+    fire(player.pos.add(player.dir.scale(22))) // setting the scale for how far away from player the bullet should go 
   })
   //
 
 
-  //
+  // when bullet and goblin collide, kill goblin add to score and destroy bullet after 0.5 seconds 
   collides('bullet', 'goblin', (bullet, goblin) => {
     camShake(4)
     wait(0.5, () => {
@@ -433,19 +450,10 @@ scene('game', ( level = 0, score = 0 ) => {
     destroy(goblin)
     scoreLabel.value++
     scoreLabel.text = scoreLabel.value
-    // add([
-    //   text(` score: ${score}`),
-    //   pos(238, 100),
-    //   layer('ui'),
-    //   {
-    //     value: score,
-    //   },
-    //   scale(1.5),
-    // ])
   })
   //
 
-  //
+  // when bullet and skelly collide, kill goblin add to score and destroy bullet after 0.5 seconds 
   collides('bullet', 'skelly', (bullet, skelly) => {
     camShake(1)
     wait(0.5, () => {
@@ -454,31 +462,15 @@ scene('game', ( level = 0, score = 0 ) => {
     destroy(skelly)
     scoreLabel.value++
     scoreLabel.text = scoreLabel.value
-    // add([
-    //   text(` score: ${score}`),
-    //   pos(238, 100),
-    //   layer('ui'),
-    //   {
-    //     value: score,
-    //   },
-    //   scale(1.5),
-    // ])
   })
   //
 
+
+  //
   player.collides('point', (point) => {
     destroy(point)
     scoreLabel.value++
     scoreLabel.text = scoreLabel.value
-    // add([
-    //   text(` score: ${scoreLabel.value}`),
-    //   pos(238, 100),
-    //   layer('ui'),
-    //   {
-    //     value: score,
-    //   },
-    //   scale(1),
-    // ])
   })
 
   //
@@ -516,7 +508,7 @@ scene('game', ( level = 0, score = 0 ) => {
 
 
   //
-  player.overlaps('dangerous', () => {
+  player.overlaps('enemy', () => {
     go('lose', { score: scoreLabel.value })
   })
 
