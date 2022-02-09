@@ -8,6 +8,11 @@
     --menu-selected-color: #7fc2ff;
 }
 
+html{
+    width: min-content;
+    height: min-content;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -24,9 +29,6 @@ body {
     position: relative;
     width: 702px;
     height: 412px;
-    margin: 0 auto;
-
-    transform: scale(1.5) translateY(20%);
 }
 
 .game-container canvas {

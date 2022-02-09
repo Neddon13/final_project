@@ -1,23 +1,10 @@
 import './App.css';
-import PageHeader from './components/PageHeader';
-import GameContainer from './containers/GameContainer';
-import PageReel from './components/PageReel';
-import PageFooter from './components/PageFooter';
-
+import {useState} from 'react';
+import React from 'react';
+import Website from './containers/Website';
 
 function App() {
-  return (
-    <>
-    <PageHeader/>
-    
-    <PageReel/>
-
-    <GameContainer/>
-
-    <PageFooter/>
-
-    </>
-  );
+  return <Website />
 }
 
 export default App;

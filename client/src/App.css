@@ -3,6 +3,21 @@
     padding: 9px;
 }
 
+iframe {
+    border: none;
+}
+
+#game-iframe{
+    overflow: hidden;
+    background-color: red;
+}
+
+#iframe-container {
+    margin: 0 auto;
+    width: min-content;
+    height: min-content
+}
+
 .footer{
     background-color: grey;
     padding: 25px;
@@ -18,13 +33,17 @@
     text-align: right;
 }
 
-
 #reel-container{
     border: solid 3px white;
     width: 98vw;
     margin: 0 auto;
-    height: 400px;
+    height: 500px;
     background-color: #A9A9A9; 
+}
+
+.carousel-inner{
+    display: flex;
+    justify-content: space-evenly;
 }
 
 #page-logo{
@@ -37,8 +56,9 @@
     border: solid 4px gray;
     background-color: white;
     margin: 1vw auto;
-    height: 190px;
+    height: 300px;
     width: 96vw;
+    overflow: hidden;
 }
 
 #icons{
@@ -62,6 +82,3 @@
 #game-icon4 img{
    border-radius: 13px;
 }
-
-
-

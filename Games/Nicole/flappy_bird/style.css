@@ -1,38 +1,19 @@
-.body {
+html{
+    height: min-content;
+    width: 500px;
+}
+
+body {
     display: flex;
+    margin: 0;
 }
 
 .game-container{
     width: 500px;
     height: 730px;
     position: absolute;
-    left: 80px;
-}
-
-.border-left {
-    width: 72px;
-    height: 790px;
-    position: absolute;
-    background-color: white;
-    z-index: +1;
-}
-
-.border-right{
-    width: 80px;
-    height: 790px;
-    position: absolute;
-    background-color: white;
-    z-index: +2;
-    left: 580px;
-}
-
-.border-top{
-    width: 730px;
-    height: 58px;
-    position: absolute;
-    background-color: white;
-    z-index: +2;
-    top: -50px;
+    overflow: hidden;
+    
 }
 
 .sky{
