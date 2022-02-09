@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="11" height="5" tilewidth="32" tileheight="32" infinite="0" nextlayerid="2" nextobjectid="1">
+ <tileset firstgid="1" source="SampleMap/[Base]BaseChip_pipo.tsx"/>
+ <layer id="1" name="Tile Layer 1" width="11" height="5">
+  <data encoding="csv">
+362,362,362,362,362,362,362,362,362,362,362,
+305,305,305,305,305,305,305,305,305,305,305,
+305,305,305,305,305,305,305,305,305,305,305,
+305,305,305,305,305,305,305,305,305,305,305,
+305,305,305,305,305,305,305,305,305,305,305
+</data>
+ </layer>
+</map>
