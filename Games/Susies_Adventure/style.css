@@ -30,3 +30,8 @@ body {
     overflow: hidden;
 
   }
+
+  html {
+    height: min-content;
+    width: min-content;
+  }
