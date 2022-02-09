@@ -1,6 +1,8 @@
 body {
     background-color: grey;
     margin: 0;
+    height: min-content;
+    width: min-content;
   }
 
   .text {
@@ -24,8 +26,8 @@ body {
   }
 
   .game-container {
-    height: 720px;
-    width: 1080px;
+    height: 380px;
+    width: 600px;
     border: 3px solid white;
     overflow: hidden;
 
@@ -34,4 +36,5 @@ body {
   html {
     height: min-content;
     width: min-content;
+    
   }

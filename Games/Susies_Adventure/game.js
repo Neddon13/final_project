@@ -11,11 +11,9 @@ refreshButton.addEventListener('click', refreshPage)
 
 kaboom({  // setup for Kaboom game library and is importated through html file
   root: document.querySelector(".game-container"),
-  width: 1080,
-  height: 720,
   global: true,
   fullscreen: false,
-  scale: 3,
+  scale: 1.65,
   debug: true,
   clearColor: [0, 0, 0, 1],
 })
@@ -23,7 +21,7 @@ kaboom({  // setup for Kaboom game library and is importated through html file
 // // player, enemey and boss speed 
 const player_Speed = 60
 const goblin_Speed = 40
-const Skelly_Speed = 30
+const skelly_Speed = 30
 
 // Game Logic and level creation
 loadRoot('https://i.imgur.com/') //loading in sprites for game characters and objects for mapping levels though imgur account
@@ -424,7 +422,7 @@ scene('game', ({ level, score }) => {
     goblin.move(goblin.dir * goblin_Speed, 0)
   })
   action('skelly-side', (skelly) => {
-    skelly.move(skelly.dir * Skelly_Speed, 0)
+    skelly.move(skelly.dir * skelly_Speed, 0)
   })
 
   collides('goblin', 'wall', (goblin) => {
@@ -435,7 +433,7 @@ scene('game', ({ level, score }) => {
 
   //
   action('skelly', (skelly) => {
-    skelly.move(0, skelly.dir * Skelly_Speed)
+    skelly.move(0, skelly.dir * skelly_Speed)
     skelly.timer -= dt()
     if (skelly.timer <= 0) {
       skelly.dir = -skelly.dir
