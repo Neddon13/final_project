@@ -7,7 +7,7 @@ const Payment = () => {
     return(
         <>
         <div id="checkout-button">
-            <input type="button" value="Subscription" onClick= {openStripe}/>
+            <input type="button" id="actual-button" value="Subscription" onClick= {openStripe}/>
             </div>
         </>
     )

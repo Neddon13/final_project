@@ -395,7 +395,7 @@ scene('game', ({ level, score }) => {
     })
     destroy(goblin)
     scoreLabel.value++
-    scoreLabel.text = "Score : " + scoreLabel.value
+    scoreLabel.text = "Score: " + scoreLabel.value
   })
   //
 
@@ -407,7 +407,7 @@ scene('game', ({ level, score }) => {
     })
     destroy(skelly)
     scoreLabel.value++
-    scoreLabel.text = "Score : " + scoreLabel.value
+    scoreLabel.text = "Score: " + scoreLabel.value
   })
   //
 
@@ -416,7 +416,7 @@ scene('game', ({ level, score }) => {
   player.collides('point', (point) => {
     destroy(point)
     scoreLabel.value++
-    scoreLabel.text = "Score : " + scoreLabel.value
+    scoreLabel.text = "Score: " + scoreLabel.value
   })
 
   //

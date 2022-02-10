@@ -5,8 +5,14 @@
 
 #checkout-button{
     display: flex;
-    justify-content: right;
-    padding-left: 80%;
+    justify-content: end;
+
+}
+
+#actual-button {
+    text-decoration: none;
+    background-color: #00BFFF;
+    
 }
 
 #details-container{
@@ -27,10 +33,6 @@ iframe {
 
 #game-iframe{
     overflow: hidden;
-<<<<<<< HEAD
-    /* background-color: red; */
-=======
->>>>>>> b53638a09e9f7b4214e2de2dad3c9fe40d5e1c33
 }
 
 #iframe-container {

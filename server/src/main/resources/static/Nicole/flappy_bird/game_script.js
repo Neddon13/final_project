@@ -3,16 +3,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const gameDisplay = document.querySelector('.game-container')
     const ground = document.querySelector('.ground')
     const message = document.querySelector('.message')
-    const score = document.querySelector('.score')
-
+    const scoreBoard = document.querySelector('.score')
+    const refreshButton = document.querySelector('.refresh-button');
 
     let birdLeft = 220
     let birdBottom = 180
     let gravity = 3
     let isGameOver = false
     let gap = 430
-    // let score = 0
+    let score = 0
 
+    const refreshPage = () => {
+        location.reload();
+    }
+
+    refreshButton.addEventListener('click', refreshPage)
 
     function startGame(){
         birdBottom -= gravity
@@ -31,7 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
     function jump() {
         if (birdBottom < 500 ) birdBottom += 50
         bird.style.bottom = birdBottom + 'px'
-        console.log(birdBottom)
     }
     document.addEventListener('keydown', control)
 
@@ -62,6 +66,12 @@ document.addEventListener('DOMContentLoaded', () => {
         clearInterval(timerId)
         gameDisplay.removeChild(obstacle)
         gameDisplay.removeChild(topObstacle)
+        }
+
+        if (obstacleLeft === 220) {
+            score++
+            console.log(score)
+            scoreBoard.innerHTML = `Score: ${score}`
         }
 
         if(obstacleLeft > 200 && obstacleLeft < 280 && birdLeft === 220 && (birdBottom < obstacleBottom + 153 || birdBottom > obstacleBottom + gap - 200) || birdBottom === 0){
