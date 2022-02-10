@@ -1,5 +1,5 @@
 const ControlsText = ({control}) => {
-    return <p>
+    return <p class="controls-text">
         {control}
     </p>
 }

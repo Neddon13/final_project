@@ -6,7 +6,7 @@ const PageHeader = () => {
         <header>
             <div id="main-header" className="flex-row">
                 <div id="page-logo"> 
-                <h1>Game World</h1>
+                <h1>MINIGROUNDS</h1>
                 </div>
                 <hr></hr>
             <Payment/>

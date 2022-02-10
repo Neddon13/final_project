@@ -1,7 +1,7 @@
 import snakeicon from '../images/snakeicon.png';
 import flappybirdicon from '../images/flappybirdicon.jpeg';
-import icon3 from '../images/icon3.png';
-import icon4 from '../images/icon4.jpeg';
+import logo from '../images/logo.png';
+import susie from '../images/susie.png';
 import snakeadvert from '../images/snakeadvert.jpeg';
 import FBadvert from '../images/FBadvert.jpeg';
 import owadvert from '../images/owadvert.jpeg';
@@ -131,10 +131,10 @@ const PageReel = ({selectedGame, setSelectedGame}) => {
                 <img src={snakeicon} onClick={setGameToSnake}></img>
                 </div>
                 <div id="game-icon3">
-                <img src={icon3} onClick={setGameToCodeclandAdventure}></img>
+                <img src={logo} onClick={setGameToCodeclandAdventure}></img>
                 </div>
                 <div id="game-icon4">
-                <img src={icon4} onClick={setGameToSusiesAdventure}></img>
+                <img src={susie} onClick={setGameToSusiesAdventure}></img>
                 </div>
             </div>
         </div>
