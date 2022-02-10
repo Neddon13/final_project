@@ -15,7 +15,7 @@ kaboom({  // setup for Kaboom game library and is importated through html file
   height: 720,
   global: true,
   fullscreen: false,
-  scale: 3,
+  scale: 1.7,
   debug: true,
   clearColor: [0, 0, 0, 1],
 })
@@ -293,7 +293,7 @@ scene('game', ({ level, score }) => {
 
   //
   let scoreLabel = add([
-    text(` score: ${score}`),
+    text(`Score: ${score}`),
     pos(238, 100),
     layer('ui'),
     {
@@ -395,7 +395,7 @@ scene('game', ({ level, score }) => {
     })
     destroy(goblin)
     scoreLabel.value++
-    scoreLabel.text = scoreLabel.value
+    scoreLabel.text = "Score : " + scoreLabel.value
   })
   //
 
@@ -407,7 +407,7 @@ scene('game', ({ level, score }) => {
     })
     destroy(skelly)
     scoreLabel.value++
-    scoreLabel.text = scoreLabel.value
+    scoreLabel.text = "Score : " + scoreLabel.value
   })
   //
 
@@ -416,7 +416,7 @@ scene('game', ({ level, score }) => {
   player.collides('point', (point) => {
     destroy(point)
     scoreLabel.value++
-    scoreLabel.text = scoreLabel.value
+    scoreLabel.text = "Score : " + scoreLabel.value
   })
 
   //
@@ -471,12 +471,13 @@ scene('game', ({ level, score }) => {
 // all scenes created for game outcomes and what should appear on screen when triggered
 // lose scene
 scene('lose', ({ score }) => {
-  add([text(' You lose try again! Score: ' + parseInt(score)), origin('center'), pos(200, 125), scale(0.4)])
+  add([text(' You lose try again! Score: ' + parseInt(score)), pos(10, 125), scale(1.3)])
 })
 
 // win scene
 scene('win', ({ score }) => {
-  add([text(' Congrats you completed the game! With a final Score: ' + parseInt(score)), origin('center'), pos(200, 125), scale(0.8)])
+  add([text(' Chapter one complete! Score: ' + parseInt(score)), pos(10, 125), scale(1.3)])
+  add([text(' Pay premium to continue...'), pos(10, 145), scale(1.3)])
 })
 //
 

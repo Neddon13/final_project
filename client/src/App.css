@@ -1,6 +1,23 @@
 #main-header{
-    background-color: grey;
+    background-image: linear-gradient(to bottom right, blue, #00BFFF, #0000CD, #1E90FF);
     padding: 9px;
+}
+
+#checkout-button{
+    display: flex;
+    justify-content: right;
+    padding-left: 80%;
+}
+
+#details-container{
+    background-color: skyblue;
+    color: #ffffff;
+}
+
+h1{
+    text-align: center;
+    color: #ffffff;
+    font-family: 'Trebuchet MS';
 }
 
 iframe {
@@ -10,7 +27,10 @@ iframe {
 
 #game-iframe{
     overflow: hidden;
+<<<<<<< HEAD
     /* background-color: red; */
+=======
+>>>>>>> b53638a09e9f7b4214e2de2dad3c9fe40d5e1c33
 }
 
 #iframe-container {
@@ -19,9 +39,10 @@ iframe {
 }
 
 .footer{
-    background-color: grey;
+    background-color: blue;
     padding: 25px;
     text-align: center;
+    background-image: linear-gradient(to bottom right, blue, #00BFFF, #0000CD, #1E90FF);
 }
 
 #top-bar{
@@ -38,18 +59,12 @@ iframe {
     width: 98vw;
     margin: 0 auto;
     height: 500px;
-    background-color: #A9A9A9; 
+    background-image: linear-gradient(to top, #00BFFF, #ffffff);
 }
 
 .carousel-inner{
     display: flex;
     justify-content: space-evenly;
-}
-
-#page-logo{
-    display: flex;
-    justify-content: center; 
-    margin: auto 35px;
 }
 
 #slides{
