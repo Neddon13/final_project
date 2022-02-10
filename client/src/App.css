@@ -6,7 +6,12 @@
 #checkout-button{
     display: flex;
     justify-content: right;
-    justify-items: end;
+    padding-left: 80%;
+}
+
+#details-container{
+    background-color: skyblue;
+    color: #ffffff;
 }
 
 h1{
@@ -22,7 +27,6 @@ iframe {
 
 #game-iframe{
     overflow: hidden;
-    background-color: red;
 }
 
 #iframe-container {
