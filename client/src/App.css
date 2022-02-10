@@ -5,6 +5,7 @@
 
 iframe {
     border: none;
+    overscroll-behavior: contain;
 }
 
 #game-iframe{
@@ -13,9 +14,8 @@ iframe {
 }
 
 #iframe-container {
-    margin: 0 auto;
     width: min-content;
-    height: min-content
+    height: min-content;
 }
 
 .footer{
@@ -81,4 +81,15 @@ iframe {
 
 #game-icon4 img{
    border-radius: 13px;
+}
+
+#game-and-details {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#details-container {
+    border: 1px solid black;
+    height: 500px;
+    width: 30vw;
 }

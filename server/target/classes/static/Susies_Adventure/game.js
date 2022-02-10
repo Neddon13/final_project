@@ -346,26 +346,26 @@ scene('game', ({ level, score }) => {
 
   // controls for player with arrow keys assigned to play game 
   //Left
-  keyDown('left', () => {
+  keyDown('a', () => {
     player.changeSprite('player-left')
     player.move(-player_Speed, 0)
     player.dir = vec2(-1, 0)
   })
   // Right
-  keyDown('right', () => {
+  keyDown('d', () => {
     player.changeSprite('player-right')
     player.move(player_Speed, 0)
     player.dir = vec2(1, 0)
   })
   // UP
-  keyDown('up', () => {
+  keyDown('w', () => {
     player.changeSprite('player-up')
     player.move(0, -player_Speed)
     player.dir = vec2(0, -1)
   })
 
   // Down
-  keyDown('down', () => {
+  keyDown('s', () => {
     player.changeSprite('player-facing')
     player.move(0, player_Speed)
     player.dir = vec2(0, 1)
