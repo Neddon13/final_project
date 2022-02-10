@@ -66,8 +66,9 @@ h3 {
 
 iframe {
     border: none;
-    
     overscroll-behavior: contain;
+    border-radius: 5px;
+    border: 3px solid white;
 }
 
 #game-iframe{
@@ -75,9 +76,6 @@ iframe {
 }
 
 #iframe-container {
-    border-radius: 5px;
-    border: 3px solid white;
-    background-image: linear-gradient(to bottom right, orange, rgb(255, 68, 0), orange);
     width: min-content;
     height: min-content;
 }

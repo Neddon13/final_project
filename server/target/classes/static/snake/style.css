@@ -41,6 +41,10 @@ html {
 
 body {
   margin: 0;
+  width:500px;
+  height: 500px;
+  overflow: hidden;
+  background-image: linear-gradient(to bottom right, orange, rgb(255, 68, 0), orange);
 }
 
   
