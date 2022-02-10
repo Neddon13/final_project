@@ -29,8 +29,8 @@ const PageReel = ({selectedGame, setSelectedGame}) => {
         setSelectedGame({
             name: "Snake",
             src: "http://localhost:8080/snake",
-            height: 490, 
-            width: 422,
+            height: 460, 
+            width: 406,
             controls: [
                 "Up : W",
                 "Down : S",
@@ -48,8 +48,8 @@ const PageReel = ({selectedGame, setSelectedGame}) => {
         setSelectedGame({
             name: "Susie's Adventure",
             src: "http://localhost:8080/susies-adventure",
-            height: 386, 
-            width: 606, 
+            height: 380, 
+            width: 620, 
             controls: [
                 "Up : W",
                 "Down : S",

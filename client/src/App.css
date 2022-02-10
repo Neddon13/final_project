@@ -10,7 +10,7 @@ iframe {
 
 #game-iframe{
     overflow: hidden;
-    background-color: red;
+    /* background-color: red; */
 }
 
 #iframe-container {
