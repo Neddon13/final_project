@@ -15,6 +15,9 @@ const PageReel = ({selectedGame, setSelectedGame}) => {
             src: "http://localhost:8080/flappy-bird",
             height: 730,
             width: 500,
+            controls: [
+                "Jump : Space-bar"
+            ]
         })
         setTimeout(()=> {
             document.getElementById("game-iframe").scrollIntoView(true)
@@ -27,7 +30,13 @@ const PageReel = ({selectedGame, setSelectedGame}) => {
             name: "Snake",
             src: "http://localhost:8080/snake",
             height: 490, 
-            width: 422, 
+            width: 422,
+            controls: [
+                "Up : W",
+                "Down : S",
+                "Left : A",
+                "Right : D"
+            ] 
         })
         setTimeout(()=> {
             document.getElementById("game-iframe").scrollIntoView(true)
@@ -41,6 +50,13 @@ const PageReel = ({selectedGame, setSelectedGame}) => {
             src: "http://localhost:8080/susies-adventure",
             height: 386, 
             width: 606, 
+            controls: [
+                "Up : W",
+                "Down : S",
+                "Left : A",
+                "Right : D",
+                "Shoot : Space-bar"
+            ] 
         })
         setTimeout(()=> {
             document.getElementById("game-iframe").scrollIntoView(true)
@@ -54,6 +70,13 @@ const PageReel = ({selectedGame, setSelectedGame}) => {
             src: "http://localhost:8080/codecland-adventure",
             height: 412, 
             width: 702, 
+            controls: [
+                "Up : W",
+                "Down : S",
+                "Left : A",
+                "Right : D",
+                "Talk : Enter"
+            ] 
         })
         setTimeout(()=> {
             document.getElementById("game-iframe").scrollIntoView(true)
