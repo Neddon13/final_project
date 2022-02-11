@@ -140,6 +140,10 @@ iframe {
     overflow: hidden;
 }
 
+#game-icon1:hover, #game-icon2:hover, #game-icon3:hover, #game-icon4:hover {
+    border: 3px solid black;
+}
+
 #game-icon1 img{
     height: 130px;
     width: 130px;
